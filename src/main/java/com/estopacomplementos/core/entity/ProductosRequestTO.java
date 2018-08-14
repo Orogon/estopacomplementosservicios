@@ -1,15 +1,6 @@
 package com.estopacomplementos.core.entity;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
-
-/**
- * @author Cesar M Orozco R
- *
- */
-@Document(collection="Productos")
-public class ProductosEntityTO extends FrecuentesEntityTO{
+public class ProductosRequestTO {
 	
 	private String marcaProducto;
 	private String submarcaProudcto;

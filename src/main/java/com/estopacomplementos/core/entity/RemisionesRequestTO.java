@@ -16,6 +16,9 @@ public class RemisionesRequestTO {
 	private String tipoVenta;
 	private String totalNota;
 	private String pagos;
+	private String folioNota;
+	private String telefono;
+	private String numPedido;
 	
 	public String getNombreCliente() {
 		return nombreCliente;
@@ -58,6 +61,25 @@ public class RemisionesRequestTO {
 	}
 	public void setPagos(String pagos) {
 		this.pagos = pagos;
-	}	
-
+	}
+	public String getFolioNota() {
+		return folioNota;
+	}
+	public void setFolioNota(String folioNota) {
+		this.folioNota = folioNota;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public String getNumPedido() {
+		return numPedido;
+	}
+	public void setNumPedido(String numPedido) {
+		this.numPedido = numPedido;
+	}
+	
+	
 }
