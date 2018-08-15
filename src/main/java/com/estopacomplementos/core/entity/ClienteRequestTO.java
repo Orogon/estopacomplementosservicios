@@ -1,7 +1,5 @@
 package com.estopacomplementos.core.entity;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 

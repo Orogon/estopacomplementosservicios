@@ -1,11 +1,11 @@
 package com.estopacomplementos.core.business;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.ClienteRequestTO;
 
 /**
@@ -17,9 +17,12 @@ public class ClientesComponent {
 	
 	private static final Logger log = LoggerFactory.getLogger(ClientesComponent.class);
 	
-	public void registraCliente(ClienteRequestTO requestTO, HttpSession session) {
-		log.info("Entra al metodo de registraCliente :::: ClientesComponent");
-		
+	@Autowired
+	private GestorClientesDAO clientesDAO;
+	
+	public void registraCliente(ClienteRequestTO requestTO) {
+		log.info("Entra al metodo de registraCliente :::: ClientesComponent");		
+		clientesDAO.registraCliente(requestTO);
 	}
 
 }

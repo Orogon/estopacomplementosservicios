@@ -17,7 +17,7 @@ public class MongoDBConfig {
 	
 	public MongoClientURI mongoDos() {
 		/** Cambiar por ip de servidor **/
-		return new MongoClientURI("mongodb://10.51.58.228:8090/PuntoVenta");
+		return new MongoClientURI("mongodb://10.51.58.228:27017/PuntoVenta");
 	}
 	
 	@Primary
