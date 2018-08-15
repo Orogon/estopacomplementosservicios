@@ -1,22 +1,22 @@
 package com.estopacomplementos.core.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 
 public class ClienteRequestTO {
 	
-	private String nombreResponsable;
-	private String nombreNegocio;
-	private TelefonosBeanTO telefonos;
-	private DireccionBeanTO direccion;
-	private String tipoVenta;
-	private String creditoDias;
-	private String condiciones;
-	private String ventaGlobal;
-	private String adeudos;
+	private String nombreResponsable;	
+	private String nombreNegocio;	
+	private TelefonosBeanTO telefonos;	
+	private DireccionBeanTO direccion;	
+	private String tipoVenta;	
+	private String creditoDias;	
+	private String condiciones;	
 	private String correoElectronico;
 	private String notaLibre;
-	private boolean factura;
+	
 	
 	public String getNombreResponsable() {
 		return nombreResponsable;
@@ -60,18 +60,6 @@ public class ClienteRequestTO {
 	public void setCondiciones(String condiciones) {
 		this.condiciones = condiciones;
 	}
-	public String getVentaGlobal() {
-		return ventaGlobal;
-	}
-	public void setVentaGlobal(String ventaGlobal) {
-		this.ventaGlobal = ventaGlobal;
-	}
-	public String getAdeudos() {
-		return adeudos;
-	}
-	public void setAdeudos(String adeudos) {
-		this.adeudos = adeudos;
-	}
 	public String getCorreoElectronico() {
 		return correoElectronico;
 	}
@@ -83,12 +71,6 @@ public class ClienteRequestTO {
 	}
 	public void setNotaLibre(String notaLibre) {
 		this.notaLibre = notaLibre;
-	}
-	public boolean isFactura() {
-		return factura;
-	}
-	public void setFactura(boolean factura) {
-		this.factura = factura;
 	}
 	
 }

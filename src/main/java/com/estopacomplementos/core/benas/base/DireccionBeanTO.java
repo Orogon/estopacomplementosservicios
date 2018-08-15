@@ -1,12 +1,19 @@
 package com.estopacomplementos.core.benas.base;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class DireccionBeanTO {
 	
+	@NotBlank
 	private String calle;
+	@NotBlank
 	private String numInterior;
 	private String numExterior;
+	@NotBlank
 	private String delgacionMunicipio;
+	@NotBlank
 	private String codigoPostal;
+	@NotBlank
 	private String estado;
 	private String referencias;
 	private String txtLibre;
