@@ -12,6 +12,10 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
 import com.mongodb.MongoClientURI;
 
+/**
+ * @author Cesar M Orozco R
+ *
+ */
 @Configuration
 public class MongoDBConfig {
 	

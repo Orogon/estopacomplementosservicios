@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.ClienteRequestTO;
 
+/**
+ * @author Cesar M Orozco R
+ *
+ */
 @Service
 public class GestorClientesDAO {
 	
@@ -30,8 +34,8 @@ public class GestorClientesDAO {
 	}
 	
 	public ClienteEntityTO busquedaPorNombreNegocio(String nombreNegocio) {		
-		Query query = new Query(Criteria.where("nombreNegocio").is(nombreNegocio).and("activo").is(true));
-		return mongoTemplate.findById(query, ClienteEntityTO.class);
+		Query query = new Query(Criteria.where("nombreNegocio").is(nombreNegocio));		
+		return mongoTemplate.findOne(query, ClienteEntityTO.class);
 	}
 	
 	private static ClienteEntityTO creaEntityCliente(ClienteRequestTO requestTO) {
