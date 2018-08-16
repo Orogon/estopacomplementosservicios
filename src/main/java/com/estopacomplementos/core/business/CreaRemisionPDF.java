@@ -38,25 +38,11 @@ public class CreaRemisionPDF {
             
             Paragraph tituloDocumento = new Paragraph();
             tituloDocumento.add("Estopa y Complementos");
+            
             tituloDocumento.add("\n\n");
             documento.add(tituloDocumento);
             
-            PdfPTable tablaCliente = new PdfPTable(3);
-            PdfPCell celdaFinal = new PdfPCell(new Paragraph("Nombre del Negocio: Tlapaleria Michoacan"));
-            celdaFinal.setColspan(3);
-            tablaCliente.addCell(celdaFinal);
-            tablaCliente.addCell("Celda 1");
-            tablaCliente.addCell("Celda 2");
-            tablaCliente.addCell("Celda 3");
-             
-            tablaCliente.addCell("Celda 4");
-            tablaCliente.addCell("Celda 5");
-            tablaCliente.addCell("Celda 6");
-             
-            tablaCliente.addCell("Celda 7");
-            tablaCliente.addCell("Celda 8");
-            tablaCliente.addCell("Celda 9");           
-            
+       
             
             PdfPTable tablaArticulos = new PdfPTable(4);
             
@@ -83,7 +69,7 @@ public class CreaRemisionPDF {
             	tablaArticulos.addCell(articulos.get(a).getImporte());            	
             }            
             
-            documento.add(tablaCliente);
+//            documento.add(tablaCliente);
             documento.add(tablaArticulos);
             documento.close();
             

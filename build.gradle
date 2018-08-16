@@ -43,7 +43,10 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'	
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'	
+	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.10'
+	
+	
 	
 }
 

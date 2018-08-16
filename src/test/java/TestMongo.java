@@ -13,6 +13,7 @@ import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.business.GeneraRemisionesComponent;
+import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.ClienteRequestTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
 
@@ -24,6 +25,8 @@ public class TestMongo {
 	private ClientesComponent clientesComponent;
 	@Autowired
 	private GeneraRemisionesComponent remisiones;
+	@Autowired
+	private GestorClientesDAO dao;
 	
 	
 //	@Test
