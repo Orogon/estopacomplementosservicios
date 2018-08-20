@@ -24,6 +24,7 @@ public class GestorRemisionesDAO {
 	public void registraNotaCliente(RemisionesRequestTO requestTO, String idCliente) {
 		RemisionesEntityTO entityTO = creaObjetoRemision(requestTO, idCliente);
 		mongoTemplate.save(entityTO);
+		log.info(entityTO.getId());
 	}
 	
 	private RemisionesEntityTO creaObjetoRemision(RemisionesRequestTO requestTO, String idCliente) {
