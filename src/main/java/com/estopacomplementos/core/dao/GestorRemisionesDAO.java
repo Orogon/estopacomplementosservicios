@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.RemisionesEntityTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
 
@@ -21,20 +22,20 @@ public class GestorRemisionesDAO {
 	@Qualifier("primaryMongoTemplate")
 	private MongoTemplate mongoTemplate;
 	
-	public void registraNotaCliente(RemisionesRequestTO requestTO, String idCliente) {
+	public void registraNotaCliente(RemisionesRequestTO requestTO, ClienteEntityTO idCliente) {
 		RemisionesEntityTO entityTO = creaObjetoRemision(requestTO, idCliente);
 		mongoTemplate.save(entityTO);
 		log.info(entityTO.getId());
 	}
 	
-	private RemisionesEntityTO creaObjetoRemision(RemisionesRequestTO requestTO, String idCliente) {
+	private RemisionesEntityTO creaObjetoRemision(RemisionesRequestTO requestTO, ClienteEntityTO idCliente) {
 		RemisionesEntityTO entityTO = new RemisionesEntityTO();
 		entityTO.setFechaRemision(new Date());
 		entityTO.setFolioNota(requestTO.getFolioNota());
 		entityTO.setProductosVendidos(requestTO.getVenta());
 		entityTO.setTipoVenta(requestTO.getTipoVenta());
 		entityTO.setTotalNota(requestTO.getTotalNota());
-		entityTO.setIdCliente(idCliente);
+		entityTO.setDatosCliente(idCliente);
 		entityTO.setFechaRegistro(new Date());
 		return entityTO;
 	}

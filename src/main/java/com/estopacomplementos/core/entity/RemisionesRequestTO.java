@@ -25,6 +25,9 @@ public class RemisionesRequestTO {
 	private String totalNota;
 	@NotBlank(message="El folio de nota no puede ir vacio.")
 	private String folioNota;
+	/** Precios con descuento si tienen **/
+	private String ahorroTotal;
+	private String totalNotaSinDescuento;
 	
 	public String getNombreNegocio() {
 		return nombreNegocio;
@@ -62,5 +65,17 @@ public class RemisionesRequestTO {
 	public void setFolioNota(String folioNota) {
 		this.folioNota = folioNota;
 	}
+	public String getAhorroTotal() {
+		return ahorroTotal;
+	}
+	public void setAhorroTotal(String ahorroTotal) {
+		this.ahorroTotal = ahorroTotal;
+	}
+	public String getTotalNotaSinDescuento() {
+		return totalNotaSinDescuento;
+	}
+	public void setTotalNotaSinDescuento(String totalNotaSinDescuento) {
+		this.totalNotaSinDescuento = totalNotaSinDescuento;
+	}	
 	
 }

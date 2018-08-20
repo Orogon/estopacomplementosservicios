@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 import com.estopacomplementos.core.benas.base.ResponseTO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.dao.GestorRemisionesDAO;
+import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
 import com.estopacomplementos.core.exceptions.ManejadorMensajes;
 import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 import com.estopacomplementos.core.threads.RegistraRemisionThread;
+import com.estopacomplementos.core.utils.ValidacionesUtils;
 
 @Component
 public class GeneraRemisionesComponent {
@@ -29,7 +31,7 @@ public class GeneraRemisionesComponent {
 		log.info("Entra al metodo de realizaRemision ::::: GeneraRemisionesComponent");
 		ResponseTO responseTO = new ResponseTO();
 		try {
-			registraRemisionHilo(requestTO);
+			registraRemision(requestTO);
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
@@ -37,13 +39,15 @@ public class GeneraRemisionesComponent {
 		return responseTO;
 	}
 	
-	private void registraRemisionHilo(RemisionesRequestTO requestTO) {
-		try {
-			RegistraRemisionThread thread = new RegistraRemisionThread(requestTO, remisionesDAO, clientesDAO);
-			thread.start();
-		}catch(Exception e) {
-			log.error(e.getMessage());
-		}
+	private void registraRemision(RemisionesRequestTO requestTO) {
+		log.info("Entra al metodo de registraRemision :::: RegistraRemisionThread");
+		ClienteEntityTO entityTO = clientesDAO.busquedaPorNombreNegocio(requestTO.getNombreNegocio());
+		if(!ValidacionesUtils.isNullOrEmpty(entityTO)) {
+			log.info("El id del cliente encontrado es: " + entityTO.getId());
+			remisionesDAO.registraNotaCliente(requestTO, entityTO);
+		}else {
+			log.info("Lo Sentimos el cliente no se encontro");
+		}		
 	}
 	
 	

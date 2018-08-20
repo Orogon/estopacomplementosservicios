@@ -32,20 +32,20 @@ public class RegistraRemisionThread extends Thread{
 
 	@Override
 	public void run() {
-		registraRemision(requestTO);
+//		registraRemision(requestTO);
 	}
 	
 	
-	private void registraRemision(RemisionesRequestTO requestTO) {
-		log.info("Entra al metodo de registraRemision :::: RegistraRemisionThread");
-		ClienteEntityTO entityTO = clientesDAO.busquedaPorNombreNegocio(requestTO.getNombreNegocio());
-		if(!ValidacionesUtils.isNullOrEmpty(entityTO)) {
-			log.info("El id del cliente encontrado es: " + entityTO.getId());
-			remisionesDAO.registraNotaCliente(requestTO, entityTO.getId());
-		}else {
-			log.info("Lo Sentimos el cliente no se encontro");
-		}		
-	}
+//	private void registraRemision(RemisionesRequestTO requestTO) {
+//		log.info("Entra al metodo de registraRemision :::: RegistraRemisionThread");
+//		ClienteEntityTO entityTO = clientesDAO.busquedaPorNombreNegocio(requestTO.getNombreNegocio());
+//		if(!ValidacionesUtils.isNullOrEmpty(entityTO)) {
+//			log.info("El id del cliente encontrado es: " + entityTO.getId());
+//			remisionesDAO.registraNotaCliente(requestTO, entityTO.getId());
+//		}else {
+//			log.info("Lo Sentimos el cliente no se encontro");
+//		}		
+//	}
 	
 	
 

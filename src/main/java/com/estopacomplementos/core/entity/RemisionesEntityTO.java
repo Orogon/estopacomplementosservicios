@@ -13,7 +13,7 @@ public class RemisionesEntityTO {
 	
 	@Id
 	private String id;
-	private String idCliente;
+	private ClienteEntityTO datosCliente;
 	private Date fechaRemision;
 	private List<VentaRemisionBeanTO> productosVendidos;
 	private String tipoVenta;
@@ -21,13 +21,7 @@ public class RemisionesEntityTO {
 	private String folioNota;
 	private String totalAhorro;
 	private Date fechaRegistro;
-	
-	public String getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
-	}	
+		
 	public Date getFechaRemision() {
 		return fechaRemision;
 	}
@@ -75,6 +69,12 @@ public class RemisionesEntityTO {
 	}
 	public void setTotalAhorro(String totalAhorro) {
 		this.totalAhorro = totalAhorro;
-	}	
-
+	}
+	public ClienteEntityTO getDatosCliente() {
+		return datosCliente;
+	}
+	public void setDatosCliente(ClienteEntityTO datosCliente) {
+		this.datosCliente = datosCliente;
+	}
+	
 }

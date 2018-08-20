@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<!-- Se declaran propiedades como nombre de proyecto y el path de los logs -->
+	<springProperty scope="context" name="nombreProyecto" source="spring.application.name"/>
+	<property name="Path-Logs" value="logs"/>	
+	
+	<!-- Se da formato para la escritura de log en consola -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[#| %d{ISO8601} %-5level [${nombreProyecto:-}] [%t] %logger{0}.%M:%L - %msg |#]%n</pattern>
+        </encoder>
+    </appender>   
+   
+   <!-- Se da formato para la escritura de log en archivo, se configura el nombre de archivo y la rotacion del archivo -->
+   <appender name="Guardado-Archivo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${Path-Logs}/${nombreProyecto:-}.log</file>
+		    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+		        <Pattern>[#| %d{ISO8601} %-5level [${nombreProyecto:-}] [%t] %logger{0}.%M:%L - %msg |#]%n</Pattern>
+		    </encoder>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+        	<fileNamePattern>${Path-Logs}/${nombreProyecto:-}.%i.log</fileNamePattern>
+    	</rollingPolicy>
+    	<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+        	<maxFileSize>500MB</maxFileSize>
+    	</triggeringPolicy>
+	</appender>
+   
+   <root level="INFO"> 
+     	<appender-ref ref="STDOUT" /> 
+     	<appender-ref ref="Guardado-Archivo" />
+ 	</root> 
+   
+    
+</configuration>
