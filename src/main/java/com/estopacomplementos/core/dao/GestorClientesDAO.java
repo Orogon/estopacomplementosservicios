@@ -10,9 +10,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.estopacomplementos.core.entity.ClienteEntityTO;
+import com.estopacomplementos.core.entity.EditarClienteRequesTO;
+import com.estopacomplementos.core.utils.ValidacionesUtils;
+import com.mongodb.WriteResult;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 
 /**
@@ -46,6 +50,21 @@ public class GestorClientesDAO {
 	public ClienteEntityTO busquedaPorNombreEncargado(String nombreEncargado) {		
 		Query query = new Query(Criteria.where("nombreResponsable").is(nombreEncargado));		
 		return mongoTemplate.findOne(query, ClienteEntityTO.class);
+	}
+	
+	public void editarCliente(EditarClienteRequesTO requesTO) {
+		Query query = new Query(Criteria.where("_id").is(requesTO.getIdCliente()));
+		Update update = new Update();
+		update.addToSet("fechaModificacion", new Date());
+		if(!ValidacionesUtils.isNullOrEmpty(requesTO.getNombreResponsable()))
+			update.addToSet("nombreResponsable", requesTO.getNombreResponsable());
+		if(!ValidacionesUtils.isNullOrEmpty(requesTO.getCorreoElectronico()))
+			update.addToSet("correoElectronico", requesTO.getCorreoElectronico());
+		if(!ValidacionesUtils.isNullOrEmpty(requesTO.getTelefonos()))
+			update.addToSet("telefonos", requesTO.getTelefonos());
+		WriteResult result = mongoTemplate.updateFirst(query, update, ClienteEntityTO.class);
+		if(result.isUpdateOfExisting())
+			log.info("Se actualizo correctamente el cliente");
 	}
 	
 	private static ClienteEntityTO creaEntityCliente(AltaClienteRequestTO requestTO) {

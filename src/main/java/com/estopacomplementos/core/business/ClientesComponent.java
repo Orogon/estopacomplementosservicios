@@ -11,6 +11,7 @@ import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;
 import com.estopacomplementos.core.entity.ConsultaClienteResponseTO;
 import com.estopacomplementos.core.entity.ConsultaClientesResponseTO;
+import com.estopacomplementos.core.entity.EditarClienteRequesTO;
 import com.estopacomplementos.core.exceptions.ManejadorMensajes;
 import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 import com.estopacomplementos.core.utils.ValidacionesUtils;
@@ -71,6 +72,18 @@ public class ClientesComponent {
 				log.info("Entra a realizar la consulta por nombre de negocio");
 				responseTO.setCliente(clientesDAO.busquedaPorNombreNegocio(requesTO.getNombreNegocio()));
 			}
+			manejadorMensajes.managerSuccess(responseTO);
+		}catch(MensajeExcepcion e) {
+			manejadorMensajes.managerException(e, responseTO);
+		}
+		return responseTO;
+	}
+	
+	public ResponseTO editarCliente(EditarClienteRequesTO requesTO) {
+		log.info("Entra al metodo de editarCliente :::: ClientesComponent");
+		ResponseTO responseTO = new ResponseTO();
+		try {
+			clientesDAO.editarCliente(requesTO);
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
