@@ -1,17 +1,28 @@
 package com.estopacomplementos.core.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 
+/**
+ * @author Cesar M Orozco R
+ *
+ */
 public class ClienteRequestTO {
 	
-	private String nombreResponsable;	
-	private String nombreNegocio;	
+	@NotBlank(message="El nombre del responsable no puede venir vacio.")
+	private String nombreResponsable;
+	@NotBlank(message="El apellido paterno del responsable no puede venir vacio.")
+	private String apePatResponsable;
+	@NotBlank(message="El apellido materno del responsable no puede venir vacio.")
+	private String apeMatResponsable;
+	@NotBlank(message="El nombre del negocio no puede venir vacio.")
+	private String nombreNegocio;
 	private TelefonosBeanTO telefonos;	
 	private DireccionBeanTO direccion;	
-	private String tipoVenta;	
-	private String creditoDias;	
-	private String condiciones;	
+	private String rfc;	
+	@NotBlank(message="El correo electronico del encargado o negocio no puede venir vacio.")
 	private String correoElectronico;
 	private String notaLibre;
 	
@@ -40,23 +51,11 @@ public class ClienteRequestTO {
 	public void setDireccion(DireccionBeanTO direccion) {
 		this.direccion = direccion;
 	}
-	public String getTipoVenta() {
-		return tipoVenta;
+	public String getRfc() {
+		return rfc;
 	}
-	public void setTipoVenta(String tipoVenta) {
-		this.tipoVenta = tipoVenta;
-	}
-	public String getCreditoDias() {
-		return creditoDias;
-	}
-	public void setCreditoDias(String creditoDias) {
-		this.creditoDias = creditoDias;
-	}
-	public String getCondiciones() {
-		return condiciones;
-	}
-	public void setCondiciones(String condiciones) {
-		this.condiciones = condiciones;
+	public void setRfc(String rfc) {
+		this.rfc = rfc;
 	}
 	public String getCorreoElectronico() {
 		return correoElectronico;
@@ -70,5 +69,16 @@ public class ClienteRequestTO {
 	public void setNotaLibre(String notaLibre) {
 		this.notaLibre = notaLibre;
 	}
-	
+	public String getApePatResponsable() {
+		return apePatResponsable;
+	}
+	public void setApePatResponsable(String apePatResponsable) {
+		this.apePatResponsable = apePatResponsable;
+	}
+	public String getApeMatResponsable() {
+		return apeMatResponsable;
+	}
+	public void setApeMatResponsable(String apeMatResponsable) {
+		this.apeMatResponsable = apeMatResponsable;
+	}	
 }

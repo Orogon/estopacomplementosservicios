@@ -4,7 +4,7 @@ package com.estopacomplementos.core.benas.base;
  * @author Cesar M Orozco R
  *
  */
-public class CredencialesCLienteBeanTO {
+public class CredencialesClienteBeanTO {
 	
 	private String usuario;
 	private String password;

@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.estopacomplementos.core.ServiciosApplication;
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
-import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
+import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.business.GeneraRemisionesComponent;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
@@ -54,15 +54,15 @@ public class TestMongo {
 		remisiones.realizaRemision(requestTO);
 	}
 	
-	private List<VentaRemisionBenaTO> ventaRemision(){
-		VentaRemisionBenaTO benaTO = new VentaRemisionBenaTO();
-		List<VentaRemisionBenaTO> list = new ArrayList<>();
+	private List<VentaRemisionBeanTO> ventaRemision(){
+		VentaRemisionBeanTO benaTO = new VentaRemisionBeanTO();
+		List<VentaRemisionBeanTO> list = new ArrayList<>();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba");
 		benaTO.setImporte("566");
 		benaTO.setPrecioVenta("875");
 		list.add(benaTO);
-		benaTO = new VentaRemisionBenaTO();
+		benaTO = new VentaRemisionBeanTO();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba 2");
 		benaTO.setImporte("566");

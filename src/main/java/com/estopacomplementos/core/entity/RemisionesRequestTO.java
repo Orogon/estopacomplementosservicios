@@ -2,7 +2,7 @@ package com.estopacomplementos.core.entity;
 
 import java.util.List;
 
-import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
+import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 
 /**
  * @author Cesar M Orozco R
@@ -12,7 +12,7 @@ public class RemisionesRequestTO {
 	
 	private String nombreNegocio;
 	private String fechaRemision;
-	private List<VentaRemisionBenaTO> venta;
+	private List<VentaRemisionBeanTO> venta;
 	private String tipoVenta;
 	private String totalNota;
 	private String folioNota;
@@ -29,10 +29,10 @@ public class RemisionesRequestTO {
 	public void setFechaRemision(String fechaRemision) {
 		this.fechaRemision = fechaRemision;
 	}
-	public List<VentaRemisionBenaTO> getVenta() {
+	public List<VentaRemisionBeanTO> getVenta() {
 		return venta;
 	}
-	public void setVenta(List<VentaRemisionBenaTO> venta) {
+	public void setVenta(List<VentaRemisionBeanTO> venta) {
 		this.venta = venta;
 	}
 	public String getTipoVenta() {

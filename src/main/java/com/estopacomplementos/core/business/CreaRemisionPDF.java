@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
+import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 import com.itextpdf.text.Anchor;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chapter;
@@ -28,7 +28,7 @@ public class CreaRemisionPDF {
 	
 	private static final Logger log = LoggerFactory.getLogger(CreaRemisionPDF.class);
     
-    public void crearPDF(File pdfNewFile, List<VentaRemisionBenaTO> articulos) {
+    public void crearPDF(File pdfNewFile, List<VentaRemisionBeanTO> articulos) {
         try {
             Document documento = new Document();
             PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(pdfNewFile));     
@@ -87,15 +87,15 @@ public class CreaRemisionPDF {
         generatePDFFileIText.crearPDF(new File("/home/cesarorozco/Documentos/GeneratePDFFileIText.pdf"), ventaRemision());
     }
     
-    private static List<VentaRemisionBenaTO> ventaRemision(){
-		VentaRemisionBenaTO benaTO = new VentaRemisionBenaTO();
-		List<VentaRemisionBenaTO> list = new ArrayList<>();
+    private static List<VentaRemisionBeanTO> ventaRemision(){
+		VentaRemisionBeanTO benaTO = new VentaRemisionBeanTO();
+		List<VentaRemisionBeanTO> list = new ArrayList<>();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba");
 		benaTO.setImporte("566");
 		benaTO.setPrecioVenta("875");
 		list.add(benaTO);
-		benaTO = new VentaRemisionBenaTO();
+		benaTO = new VentaRemisionBeanTO();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba 2");
 		benaTO.setImporte("566");

@@ -41,15 +41,13 @@ public class GestorClientesDAO {
 	private static ClienteEntityTO creaEntityCliente(ClienteRequestTO requestTO) {
 		ClienteEntityTO clienteEntityTO = new ClienteEntityTO();
 		clienteEntityTO.setActivo(true);
-		clienteEntityTO.setCondiciones(requestTO.getCondiciones());
-		clienteEntityTO.setCorreoElectronico(requestTO.getCorreoElectronico());
-		clienteEntityTO.setCreditoDias(requestTO.getCreditoDias());
+		clienteEntityTO.setRfc(requestTO.getRfc());
+		clienteEntityTO.setCorreoElectronico(requestTO.getCorreoElectronico());		
 		clienteEntityTO.setDireccion(requestTO.getDireccion());
 		clienteEntityTO.setFechaRegistro(new Date());
 		clienteEntityTO.setNombreNegocio(requestTO.getNombreNegocio());
 		clienteEntityTO.setNombreResponsable(requestTO.getNombreResponsable());
-		clienteEntityTO.setTelefonos(requestTO.getTelefonos());
-		clienteEntityTO.setTipoVenta(requestTO.getTipoVenta());
+		clienteEntityTO.setTelefonos(requestTO.getTelefonos());		
 		return clienteEntityTO;
 	}
 

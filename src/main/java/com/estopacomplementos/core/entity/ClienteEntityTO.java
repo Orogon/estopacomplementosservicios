@@ -15,7 +15,7 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	private DireccionBeanTO direccion;
 	private String tipoVenta;
 	private String creditoDias;
-	private String condiciones;
+	private String rfc;
 	private String ventaGlobal;
 	private String correoElectronico;
 	private String notaLibre;	
@@ -55,12 +55,12 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	}
 	public void setCreditoDias(String creditoDias) {
 		this.creditoDias = creditoDias;
+	}	
+	public String getRfc() {
+		return rfc;
 	}
-	public String getCondiciones() {
-		return condiciones;
-	}
-	public void setCondiciones(String condiciones) {
-		this.condiciones = condiciones;
+	public void setRfc(String rfc) {
+		this.rfc = rfc;
 	}
 	public String getVentaGlobal() {
 		return ventaGlobal;

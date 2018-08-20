@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
-import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
+import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 
 @Document(collection="Remisiones")
 public class RemisionesEntityTO extends FrecuentesEntityTO{
 	
 	private String idCliente;
 	private Date fechaRemision;
-	private List<VentaRemisionBenaTO> productosVendidos;
+	private List<VentaRemisionBeanTO> productosVendidos;
 	private String tipoVenta;
 	private String totalNota;	
 	private String folioNota;			
@@ -30,10 +30,10 @@ public class RemisionesEntityTO extends FrecuentesEntityTO{
 	public void setFechaRemision(Date fechaRemision) {
 		this.fechaRemision = fechaRemision;
 	}	
-	public List<VentaRemisionBenaTO> getProductosVendidos() {
+	public List<VentaRemisionBeanTO> getProductosVendidos() {
 		return productosVendidos;
 	}
-	public void setProductosVendidos(List<VentaRemisionBenaTO> productosVendidos) {
+	public void setProductosVendidos(List<VentaRemisionBeanTO> productosVendidos) {
 		this.productosVendidos = productosVendidos;
 	}
 	public String getTipoVenta() {
