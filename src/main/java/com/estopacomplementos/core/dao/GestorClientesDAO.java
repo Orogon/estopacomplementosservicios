@@ -29,8 +29,8 @@ public class GestorClientesDAO {
 	
 	public void registraCliente(ClienteRequestTO requestTO) {
 		log.info("Entra al metodo de registraCliente :::: GestorClientesDAO");
-		ClienteEntityTO entityTO = creaEntityCliente(requestTO);
-		mongoTemplate.save(entityTO);		
+		ClienteEntityTO entityTO = creaEntityCliente(requestTO);	
+		mongoTemplate.save(entityTO);	
 	}
 	
 	public ClienteEntityTO busquedaPorNombreNegocio(String nombreNegocio) {		
@@ -47,7 +47,10 @@ public class GestorClientesDAO {
 		clienteEntityTO.setFechaRegistro(new Date());
 		clienteEntityTO.setNombreNegocio(requestTO.getNombreNegocio());
 		clienteEntityTO.setNombreResponsable(requestTO.getNombreResponsable());
-		clienteEntityTO.setTelefonos(requestTO.getTelefonos());		
+		clienteEntityTO.setApePatResponsable(requestTO.getApePatResponsable());
+		clienteEntityTO.setApeMatResponsable(requestTO.getApeMatResponsable());
+		clienteEntityTO.setTelefonos(requestTO.getTelefonos());	
+		clienteEntityTO.setNotaLibre(requestTO.getNotaLibre());
 		return clienteEntityTO;
 	}
 

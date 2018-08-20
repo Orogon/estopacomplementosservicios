@@ -10,6 +10,7 @@ import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.ClienteRequestTO;
 import com.estopacomplementos.core.exceptions.ManejadorMensajes;
 import com.estopacomplementos.core.exceptions.MensajeExcepcion;
+import com.estopacomplementos.core.utils.ValidacionesUtils;
 
 /**
  * @author Cesar M Orozco R
@@ -25,14 +26,18 @@ public class ClientesComponent {
 	@Autowired
 	private ManejadorMensajes manejadorMensajes;
 	
-	private static final Integer TELEFONO_INVALIDO = 2;
+	private static final Integer TELEFONO_INVALIDO_CELULAR = 2;
+	private static final Integer TELEFONO_INVALIDO_LOCAL = 4;
+	private static final Integer DIRECCION_VACIA = 3;
 	
 	public ResponseTO registraCliente(ClienteRequestTO requestTO) {
 		log.info("Entra al metodo de registraCliente :::: ClientesComponent");
 		ResponseTO responseTO = new ResponseTO();		
 		try {
 			validaTelefonoCelular(requestTO);
-//			clientesDAO.registraCliente(requestTO);
+			validaTelefonoLocal(requestTO);
+			validaDireccionCompleta(requestTO);
+			clientesDAO.registraCliente(requestTO);
 			manejadorMensajes.managerSuccess(responseTO);
 		} catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
@@ -41,8 +46,24 @@ public class ClientesComponent {
 	}
 	
 	private void validaTelefonoCelular(ClienteRequestTO requestTO) {
-		if(requestTO.getTelefonos().getNumCelular().length() > 10) {
-			throw new MensajeExcepcion(TELEFONO_INVALIDO);
+		if(requestTO.getTelefonos().getNumCelular().length() > 10 || 
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCelular())) {
+			log.info("El numero que se encuentra invalido es el celular");
+			throw new MensajeExcepcion(TELEFONO_INVALIDO_CELULAR);
+		}
+	}
+	
+	private void validaTelefonoLocal(ClienteRequestTO requestTO) {
+		if(requestTO.getTelefonos().getNumCasa().length() > 10 || 
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCasa())) {
+			log.info("El numero que se encuentra invalido es el local");
+			throw new MensajeExcepcion(TELEFONO_INVALIDO_LOCAL);
+		}
+	}
+	
+	private void validaDireccionCompleta(ClienteRequestTO requestTO) {
+		if(ValidacionesUtils.isNullOrEmpty(requestTO.getDireccion())) {
+			throw new MensajeExcepcion(DIRECCION_VACIA);
 		}
 	}
 
