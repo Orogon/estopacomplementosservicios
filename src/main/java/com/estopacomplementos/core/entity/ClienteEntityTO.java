@@ -1,11 +1,12 @@
 package com.estopacomplementos.core.entity;
 
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 
+@Document(collection="Clientes")
 public class ClienteEntityTO extends FrecuentesEntityTO{
 	
 	private String nombreResponsable;
@@ -16,11 +17,8 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	private String creditoDias;
 	private String condiciones;
 	private String ventaGlobal;
-	private String adeudos;
-	private List<String> idRemisiones;
 	private String correoElectronico;
-	private String notaLibre;
-	private boolean factura;
+	private String notaLibre;	
 	
 	public String getNombreResponsable() {
 		return nombreResponsable;
@@ -70,18 +68,6 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	public void setVentaGlobal(String ventaGlobal) {
 		this.ventaGlobal = ventaGlobal;
 	}
-	public String getAdeudos() {
-		return adeudos;
-	}
-	public void setAdeudos(String adeudos) {
-		this.adeudos = adeudos;
-	}
-	public List<String> getIdRemisiones() {
-		return idRemisiones;
-	}
-	public void setIdRemisiones(List<String> idRemisiones) {
-		this.idRemisiones = idRemisiones;
-	}
 	public String getCorreoElectronico() {
 		return correoElectronico;
 	}
@@ -94,11 +80,5 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	public void setNotaLibre(String notaLibre) {
 		this.notaLibre = notaLibre;
 	}
-	public boolean isFactura() {
-		return factura;
-	}
-	public void setFactura(boolean factura) {
-		this.factura = factura;
-	}	
 
 }

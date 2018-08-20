@@ -1,7 +1,8 @@
 package com.estopacomplementos.core.entity;
 
 import java.util.List;
-import java.util.Map;
+
+import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
 
 /**
  * @author Cesar M Orozco R
@@ -9,28 +10,18 @@ import java.util.Map;
  */
 public class RemisionesRequestTO {
 	
-	private String nombreCliente;
-	private String direccionEntrega;
+	private String nombreNegocio;
 	private String fechaRemision;
-	private List<Map<String, String>> productosVendidos;
+	private List<VentaRemisionBenaTO> venta;
 	private String tipoVenta;
 	private String totalNota;
-	private String pagos;
 	private String folioNota;
-	private String telefono;
-	private String numPedido;
 	
-	public String getNombreCliente() {
-		return nombreCliente;
+	public String getNombreNegocio() {
+		return nombreNegocio;
 	}
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
-	}
-	public String getDireccionEntrega() {
-		return direccionEntrega;
-	}
-	public void setDireccionEntrega(String direccionEntrega) {
-		this.direccionEntrega = direccionEntrega;
+	public void setNombreNegocio(String nombreNegocio) {
+		this.nombreNegocio = nombreNegocio;
 	}
 	public String getFechaRemision() {
 		return fechaRemision;
@@ -38,11 +29,11 @@ public class RemisionesRequestTO {
 	public void setFechaRemision(String fechaRemision) {
 		this.fechaRemision = fechaRemision;
 	}
-	public List<Map<String, String>> getProductosVendidos() {
-		return productosVendidos;
+	public List<VentaRemisionBenaTO> getVenta() {
+		return venta;
 	}
-	public void setProductosVendidos(List<Map<String, String>> productosVendidos) {
-		this.productosVendidos = productosVendidos;
+	public void setVenta(List<VentaRemisionBenaTO> venta) {
+		this.venta = venta;
 	}
 	public String getTipoVenta() {
 		return tipoVenta;
@@ -56,30 +47,11 @@ public class RemisionesRequestTO {
 	public void setTotalNota(String totalNota) {
 		this.totalNota = totalNota;
 	}
-	public String getPagos() {
-		return pagos;
-	}
-	public void setPagos(String pagos) {
-		this.pagos = pagos;
-	}
 	public String getFolioNota() {
 		return folioNota;
 	}
 	public void setFolioNota(String folioNota) {
 		this.folioNota = folioNota;
 	}
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-	public String getNumPedido() {
-		return numPedido;
-	}
-	public void setNumPedido(String numPedido) {
-		this.numPedido = numPedido;
-	}
-	
 	
 }
