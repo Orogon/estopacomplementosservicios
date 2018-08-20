@@ -16,7 +16,7 @@ import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.business.GeneraRemisionesComponent;
 import com.estopacomplementos.core.dao.CodigosErrorDAO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
-import com.estopacomplementos.core.entity.ClienteRequestTO;
+import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estopacomplementos.core.benas.base.ResponseTO;
 import com.estopacomplementos.core.business.ClientesComponent;
-import com.estopacomplementos.core.entity.ClienteRequestTO;
+import com.estopacomplementos.core.entity.AltaClienteRequestTO;
+import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;
+import com.estopacomplementos.core.entity.ConsultaClientesResponseTO;
 
 @RestController
 @Scope("session")
@@ -27,9 +29,25 @@ public class ClienteController {
 	private ClientesComponent clientesComponent;
 	
 	@RequestMapping(value= {"/registracliente"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
-	public ResponseTO registraCliente(@Valid@RequestBody ClienteRequestTO clienteRequestTO, HttpSession session) {
+	public ResponseTO registraCliente(@Valid@RequestBody AltaClienteRequestTO clienteRequestTO, HttpSession session) {
 		log.info("Entra al metodo de registraCliente ::::: ClienteController");
 		ResponseTO responseTO = clientesComponent.registraCliente(clienteRequestTO);
+		return responseTO;
+	}
+	
+	@RequestMapping(value= {"/consultaclientes"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
+	public ConsultaClientesResponseTO consultaClientes(HttpSession session) {
+		log.info("Entra al metodo de consultaClientes ::::: ClienteController");
+		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
+		responseTO = clientesComponent.consultaClientes();
+		return responseTO;
+	}
+	
+	@RequestMapping(value= {"/consultacliente"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
+	public ConsultaClientesResponseTO consultaCliente(@Valid @RequestBody ConsultaClienteRequesTO requesTO, HttpSession session) {
+		log.info("Entra al metodo de consultaCliente ::::: ClienteController");
+		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
+		responseTO = clientesComponent.consultaClientes();
 		return responseTO;
 	}
 

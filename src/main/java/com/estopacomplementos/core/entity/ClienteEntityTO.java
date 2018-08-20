@@ -10,8 +10,6 @@ import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 public class ClienteEntityTO extends FrecuentesEntityTO{
 	
 	private String nombreResponsable;	
-	private String apePatResponsable;	
-	private String apeMatResponsable;	
 	private String nombreNegocio;
 	private TelefonosBeanTO telefonos;	
 	private DireccionBeanTO direccion;	
@@ -24,18 +22,6 @@ public class ClienteEntityTO extends FrecuentesEntityTO{
 	}
 	public void setNombreResponsable(String nombreResponsable) {
 		this.nombreResponsable = nombreResponsable;
-	}
-	public String getApePatResponsable() {
-		return apePatResponsable;
-	}
-	public void setApePatResponsable(String apePatResponsable) {
-		this.apePatResponsable = apePatResponsable;
-	}
-	public String getApeMatResponsable() {
-		return apeMatResponsable;
-	}
-	public void setApeMatResponsable(String apeMatResponsable) {
-		this.apeMatResponsable = apeMatResponsable;
 	}
 	public String getNombreNegocio() {
 		return nombreNegocio;

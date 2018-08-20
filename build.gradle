@@ -53,14 +53,9 @@ configurations.all {
 }
 
 jar {
-	baseName = 'ms-tiempoaire-core'
-	version = '1.0.0'
+	baseName = 'ms-estopacomplementos-core'
+	version = '1.0.0-SNAPSHOT'
 }
-
-archivesBaseName = 'ms-tiempoaire-core'
-group = 'com.bancoazteca.ms'
-description = """MS_TIEMPOAIRE_CORE"""
-version = "0.0.1-SNAPSHOT"
 
 task sourceJar(type: Jar) {
 	from sourceSets.main.allJava
