@@ -29,9 +29,7 @@ public class ClienteController {
 	@RequestMapping(value= {"/registracliente"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
 	public ResponseTO registraCliente(@Valid@RequestBody ClienteRequestTO clienteRequestTO, HttpSession session) {
 		log.info("Entra al metodo de registraCliente ::::: ClienteController");
-		ResponseTO responseTO = new ResponseTO();
-		responseTO.setCodigoOperacion("0");
-		responseTO.setDescripcion("Operacion Exitosa");
+		ResponseTO responseTO = clientesComponent.registraCliente(clienteRequestTO);
 		return responseTO;
 	}
 

@@ -8,11 +8,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.estopacomplementos.core.ServiciosApplication;
+import com.estopacomplementos.core.benas.base.CodigosErrorEntityTO;
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.business.GeneraRemisionesComponent;
+import com.estopacomplementos.core.dao.CodigosErrorDAO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.ClienteRequestTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
@@ -27,6 +29,8 @@ public class TestMongo {
 	private GeneraRemisionesComponent remisiones;
 	@Autowired
 	private GestorClientesDAO dao;
+	@Autowired
+	private CodigosErrorDAO erroDao;
 	
 	
 //	@Test
@@ -42,17 +46,26 @@ public class TestMongo {
 //		clientesComponent.registraCliente(requestTO);
 //	}
 	
-	@Test
-	public void registraNota() {
-		RemisionesRequestTO requestTO = new RemisionesRequestTO();
-		requestTO.setFechaRemision("15-08-2018");
-		requestTO.setFolioNota("0001");
-		requestTO.setNombreNegocio("Tlapaleria Michoacan");
-		requestTO.setTipoVenta("Credito");
-		requestTO.setTotalNota("6000");
-		requestTO.setVenta(ventaRemision());
-		remisiones.realizaRemision(requestTO);
-	}
+//	@Test
+//	public void registraNota() {
+//		RemisionesRequestTO requestTO = new RemisionesRequestTO();
+//		requestTO.setFechaRemision("15-08-2018");
+//		requestTO.setFolioNota("0001");
+//		requestTO.setNombreNegocio("Tlapaleria Michoacan");
+//		requestTO.setTipoVenta("Credito");
+//		requestTO.setTotalNota("6000");
+//		requestTO.setVenta(ventaRemision());
+//		remisiones.realizaRemision(requestTO);
+//	}
+	
+//	@Test
+//	public void codigosError() {
+//		CodigosErrorEntityTO entityTO = new CodigosErrorEntityTO();
+//		entityTO.setCode(1);
+//		entityTO.setLanguage("es");
+//		entityTO.setMensaje("Lo sentimos, ocurrio un incidencia al realizar la operacion");
+//		erroDao.registraError(entityTO);
+//	}
 	
 	private List<VentaRemisionBeanTO> ventaRemision(){
 		VentaRemisionBeanTO benaTO = new VentaRemisionBeanTO();
