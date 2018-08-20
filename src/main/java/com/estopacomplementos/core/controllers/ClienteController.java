@@ -28,7 +28,7 @@ import com.estopacomplementos.core.entity.EditarClienteRequesTO;
 @CrossOrigin
 @RestController
 @Scope("session")
-@RequestMapping(value="/controllerCliente")
+@RequestMapping(value="/clientes")
 public class ClienteController {
 	
 	private static final Logger log = LoggerFactory.getLogger(ClienteController.class);
