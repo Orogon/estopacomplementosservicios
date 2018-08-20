@@ -82,10 +82,10 @@ public class CreaRemisionPDF {
     }
 
     
-    public static void main(String args[]) {
-    	CreaRemisionPDF generatePDFFileIText = new CreaRemisionPDF();
-        generatePDFFileIText.crearPDF(new File("/home/cesarorozco/Documentos/GeneratePDFFileIText.pdf"), ventaRemision());
-    }
+//    public static void main(String args[]) {
+//    	CreaRemisionPDF generatePDFFileIText = new CreaRemisionPDF();
+//        generatePDFFileIText.crearPDF(new File("/home/cesarorozco/Documentos/GeneratePDFFileIText.pdf"), ventaRemision());
+//    }
     
     private static List<VentaRemisionBeanTO> ventaRemision(){
 		VentaRemisionBeanTO benaTO = new VentaRemisionBeanTO();
