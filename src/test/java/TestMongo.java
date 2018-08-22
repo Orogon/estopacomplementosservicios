@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.estopacomplementos.core.ServiciosApplication;
-import com.estopacomplementos.core.benas.base.CodigosErrorEntityTO;
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
 import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
@@ -17,7 +16,6 @@ import com.estopacomplementos.core.business.GeneraRemisionesComponent;
 import com.estopacomplementos.core.dao.CodigosErrorDAO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
-import com.estopacomplementos.core.entity.RemisionesRequestTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = ServiciosApplication.class)
@@ -35,14 +33,13 @@ public class TestMongo {
 	
 //	@Test
 //	public void registroCliente() {
-//		ClienteRequestTO requestTO = new ClienteRequestTO();		
-//		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");
-//		requestTO.setCreditoDias("8");
+//		AltaClienteRequestTO requestTO = new AltaClienteRequestTO();		
+//		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");		
 //		requestTO.setDireccion(direccionBeanTO());
 //		requestTO.setNombreNegocio("Tlapaleria Michoacan");
 //		requestTO.setNombreResponsable("Juan Alberto Juarez Perez");
 //		requestTO.setTelefonos(telefonosBeanTO());
-//		requestTO.setTipoVenta("Credito");		
+//		requestTO.setRfc("OORC9310136X8");
 //		clientesComponent.registraCliente(requestTO);
 //	}
 	
@@ -90,10 +87,10 @@ public class TestMongo {
 		beanTO.setCalle("Michoacan");
 		beanTO.setCodigoPostal("14260");
 		beanTO.setDelgacionMunicipio("Tlalpan");
-		beanTO.setEstado("Mexico");
+		beanTO.setEstado("CDMX");
 		beanTO.setNumInterior("19");
 		beanTO.setTxtLibre("Edificio B1 Depto 204");
-		beanTO.setReferencias("Saguan negro");
+		beanTO.setColonia("Miguel Hidalgo 1ra Seccion");
 		return beanTO;
 	}
 	

@@ -2,20 +2,25 @@ package com.estopacomplementos.core.benas.base;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * @author Cesar M Orozco R
+ *
+ */
 public class DireccionBeanTO {
 	
-	@NotBlank
+	@NotBlank(message="La calle no puede venir vacio.")
 	private String calle;
-	@NotBlank
+	@NotBlank(message="El numero interior no puede venir vacio.")
 	private String numInterior;
-	private String numExterior;
-	@NotBlank
+	@NotBlank(message="La delegacion o municipio no puede venir vacio.")
 	private String delgacionMunicipio;
-	@NotBlank
+	@NotBlank(message="El codigo postal no puede venir vacio.")
 	private String codigoPostal;
-	@NotBlank
+	@NotBlank(message="El estado no puede venir vacio.")
 	private String estado;
-	private String referencias;
+	@NotBlank(message="La colonia no puede venir vacia.")
+	private String colonia;
+	private String numExterior;	
 	private String txtLibre;
 	
 	public String getCalle() {
@@ -53,12 +58,12 @@ public class DireccionBeanTO {
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}	
+	public String getColonia() {
+		return colonia;
 	}
-	public String getReferencias() {
-		return referencias;
-	}
-	public void setReferencias(String referencias) {
-		this.referencias = referencias;
+	public void setColonia(String colonia) {
+		this.colonia = colonia;
 	}
 	public String getTxtLibre() {
 		return txtLibre;
