@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
-import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.RemisionesEntityTO;
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
-import com.estopacomplementos.core.utils.ValidacionesUtils;
 
 @Service
 public class GestorRemisionesDAO {
@@ -23,29 +21,30 @@ public class GestorRemisionesDAO {
 	@Qualifier("primaryMongoTemplate")
 	private MongoTemplate mongoTemplate;
 	
-	public RemisionesEntityTO registraNotaCliente(RemisionesRequestTO requestTO, ClienteEntityTO idCliente) {
-		RemisionesEntityTO entityTO = creaObjetoRemision(requestTO, idCliente);
-		mongoTemplate.save(entityTO);
-		return entityTO;
-	}
+	/**
+	 * @param requestTO
+	 * @param idCliente
+	 */
+	public void registraNotaCliente(RemisionesRequestTO requestTO, String idCliente) {
+		log.info("Entra al metodo de registraNotaCliente ::::: GestorRemisionesDAO");
+		/** Falta validacion de que la nota no se repita **/
+		mongoTemplate.save(creaObjetoRemision(requestTO, idCliente));
+	}	
 	
-	private RemisionesEntityTO creaObjetoRemision(RemisionesRequestTO requestTO, ClienteEntityTO cliente) {
+	
+	private RemisionesEntityTO creaObjetoRemision(RemisionesRequestTO requestTO, String idCliente) {
 		RemisionesEntityTO entityTO = new RemisionesEntityTO();
-		entityTO.setFechaRemision(new Date());
-		entityTO.setFolioNota(requestTO.getFolioNota());
-		entityTO.setProductosVendidos(requestTO.getVenta());
-		entityTO.setTipoVenta(requestTO.getTipoVenta());				
+		entityTO.setAhorro(requestTO.getAhorro());
+		entityTO.setDelete(false);
+		entityTO.setDiasCredito(requestTO.getDiasCredito());
 		entityTO.setFechaRegistro(new Date());
-		entityTO.setDireccionNegocio(cliente.getDireccion().getCalle()+" "+cliente.getDireccion().getNumInterior());
-		entityTO.setColoniaCliente(cliente.getDireccion().getColonia());
-		entityTO.setEstadoCLiente(cliente.getDireccion().getEstado());
-		entityTO.setIdCliente(cliente.getId());
-		entityTO.setNombreNegocio(requestTO.getNombreNegocio());
-		if(!ValidacionesUtils.isNullOrEmpty(requestTO.getAhorroTotal())) {
-			entityTO.setTotalAhorro(requestTO.getAhorroTotal());			
-		} else { 
-			entityTO.setTotalAhorro("No Aplica");			
-		}
+		entityTO.setFechaRemision(requestTO.getFechaRemision());
+		entityTO.setFolioNota(requestTO.getFolioNota());
+		entityTO.setIdCliente(idCliente);
+		entityTO.setProductosVendidos(requestTO.getVenta());
+		entityTO.setTipoVenta(requestTO.getTipoVenta());
+		entityTO.setTotalNotaConDescuento(requestTO.getTotalNotaConDescuento());
+		entityTO.setTotalNotaSinDescuento(requestTO.getTotalNotaSinDescuento());		
 		return entityTO;
 	}
 

@@ -21,13 +21,21 @@ public class RemisionesRequestTO {
 	private List<VentaRemisionBeanTO> venta;
 	@NotBlank(message="El tipo de venta no puede ir vacio.")
 	private String tipoVenta;
-	@NotBlank(message="El total de la nota no puede ir vacio.")
-	private String totalNota;
+	@NotBlank(message="El campo de dias de credito no puede venir vacio")
+	private String diasCredito;
 	@NotBlank(message="El folio de nota no puede ir vacio.")
 	private String folioNota;
-	/** Precios con descuento si tienen **/
-	private String ahorroTotal;
+	
+	private String nombreResponsable;
+	private String direccionNegocio;
+	private String coloniaNegocio;
+	private String estadoNegocio;
+	private String telefonoNegocio;
+	
+	private String ahorro;
 	private String totalNotaSinDescuento;
+	private String totalNotaConDescuento;
+	
 	
 	public String getNombreNegocio() {
 		return nombreNegocio;
@@ -53,11 +61,11 @@ public class RemisionesRequestTO {
 	public void setTipoVenta(String tipoVenta) {
 		this.tipoVenta = tipoVenta;
 	}
-	public String getTotalNota() {
-		return totalNota;
+	public String getDiasCredito() {
+		return diasCredito;
 	}
-	public void setTotalNota(String totalNota) {
-		this.totalNota = totalNota;
+	public void setDiasCredito(String diasCredito) {
+		this.diasCredito = diasCredito;
 	}
 	public String getFolioNota() {
 		return folioNota;
@@ -65,17 +73,53 @@ public class RemisionesRequestTO {
 	public void setFolioNota(String folioNota) {
 		this.folioNota = folioNota;
 	}
-	public String getAhorroTotal() {
-		return ahorroTotal;
+	public String getNombreResponsable() {
+		return nombreResponsable;
 	}
-	public void setAhorroTotal(String ahorroTotal) {
-		this.ahorroTotal = ahorroTotal;
+	public void setNombreResponsable(String nombreResponsable) {
+		this.nombreResponsable = nombreResponsable;
+	}
+	public String getDireccionNegocio() {
+		return direccionNegocio;
+	}
+	public void setDireccionNegocio(String direccionNegocio) {
+		this.direccionNegocio = direccionNegocio;
+	}
+	public String getColoniaNegocio() {
+		return coloniaNegocio;
+	}
+	public void setColoniaNegocio(String coloniaNegocio) {
+		this.coloniaNegocio = coloniaNegocio;
+	}
+	public String getEstadoNegocio() {
+		return estadoNegocio;
+	}
+	public void setEstadoNegocio(String estadoNegocio) {
+		this.estadoNegocio = estadoNegocio;
+	}
+	public String getAhorro() {
+		return ahorro;
+	}
+	public void setAhorro(String ahorro) {
+		this.ahorro = ahorro;
 	}
 	public String getTotalNotaSinDescuento() {
 		return totalNotaSinDescuento;
 	}
 	public void setTotalNotaSinDescuento(String totalNotaSinDescuento) {
 		this.totalNotaSinDescuento = totalNotaSinDescuento;
-	}	
+	}
+	public String getTotalNotaConDescuento() {
+		return totalNotaConDescuento;
+	}
+	public void setTotalNotaConDescuento(String totalNotaConDescuento) {
+		this.totalNotaConDescuento = totalNotaConDescuento;
+	}
+	public String getTelefonoNegocio() {
+		return telefonoNegocio;
+	}
+	public void setTelefonoNegocio(String telefonoNegocio) {
+		this.telefonoNegocio = telefonoNegocio;
+	}
 	
 }

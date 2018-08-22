@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 
@@ -18,27 +17,37 @@ public class RemisionesEntityTO {
 	
 	@Id
 	private String id;
-	private String idCliente;
-	private String nombreNegocio;
-	private String direccionNegocio;
-	private String coloniaCliente;
-	private String estadoCLiente;
-	@DateTimeFormat(pattern="dd-MM-yyyy")
-	private Date fechaRemision;
+	private String idCliente;	
+	private String fechaRemision;
 	private List<VentaRemisionBeanTO> productosVendidos;
 	private String tipoVenta;
-	private String totalNotaConDescuento;
-	private String totalNotaSinDescuento;
+	private String diasCredito;	
 	private String folioNota;
-	private String totalAhorro;
+	private String ahorro;
+	private String totalNotaSinDescuento;
+	private String totalNotaConDescuento;
 	private Date fechaRegistro;
-		
-	public Date getFechaRemision() {
+	private Date fechaModificacion;
+	private boolean delete;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
+	public String getFechaRemision() {
 		return fechaRemision;
 	}
-	public void setFechaRemision(Date fechaRemision) {
+	public void setFechaRemision(String fechaRemision) {
 		this.fechaRemision = fechaRemision;
-	}	
+	}
 	public List<VentaRemisionBeanTO> getProductosVendidos() {
 		return productosVendidos;
 	}
@@ -50,18 +59,12 @@ public class RemisionesEntityTO {
 	}
 	public void setTipoVenta(String tipoVenta) {
 		this.tipoVenta = tipoVenta;
-	}	
-	public String getTotalNotaConDescuento() {
-		return totalNotaConDescuento;
 	}
-	public void setTotalNotaConDescuento(String totalNotaConDescuento) {
-		this.totalNotaConDescuento = totalNotaConDescuento;
+	public String getDiasCredito() {
+		return diasCredito;
 	}
-	public String getTotalNotaSinDescuento() {
-		return totalNotaSinDescuento;
-	}
-	public void setTotalNotaSinDescuento(String totalNotaSinDescuento) {
-		this.totalNotaSinDescuento = totalNotaSinDescuento;
+	public void setDiasCredito(String diasCredito) {
+		this.diasCredito = diasCredito;
 	}
 	public String getFolioNota() {
 		return folioNota;
@@ -69,11 +72,23 @@ public class RemisionesEntityTO {
 	public void setFolioNota(String folioNota) {
 		this.folioNota = folioNota;
 	}
-	public String getId() {
-		return id;
+	public String getAhorro() {
+		return ahorro;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setAhorro(String ahorro) {
+		this.ahorro = ahorro;
+	}
+	public String getTotalNotaSinDescuento() {
+		return totalNotaSinDescuento;
+	}
+	public void setTotalNotaSinDescuento(String totalNotaSinDescuento) {
+		this.totalNotaSinDescuento = totalNotaSinDescuento;
+	}
+	public String getTotalNotaConDescuento() {
+		return totalNotaConDescuento;
+	}
+	public void setTotalNotaConDescuento(String totalNotaConDescuento) {
+		this.totalNotaConDescuento = totalNotaConDescuento;
 	}
 	public Date getFechaRegistro() {
 		return fechaRegistro;
@@ -81,41 +96,17 @@ public class RemisionesEntityTO {
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-	public String getTotalAhorro() {
-		return totalAhorro;
+	public Date getFechaModificacion() {
+		return fechaModificacion;
 	}
-	public void setTotalAhorro(String totalAhorro) {
-		this.totalAhorro = totalAhorro;
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
 	}
-	public String getIdCliente() {
-		return idCliente;
+	public boolean isDelete() {
+		return delete;
 	}
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
-	}
-	public String getNombreNegocio() {
-		return nombreNegocio;
-	}
-	public void setNombreNegocio(String nombreNegocio) {
-		this.nombreNegocio = nombreNegocio;
-	}
-	public String getDireccionNegocio() {
-		return direccionNegocio;
-	}
-	public void setDireccionNegocio(String direccionNegocio) {
-		this.direccionNegocio = direccionNegocio;
-	}
-	public String getColoniaCliente() {
-		return coloniaCliente;
-	}
-	public void setColoniaCliente(String coloniaCliente) {
-		this.coloniaCliente = coloniaCliente;
-	}
-	public String getEstadoCLiente() {
-		return estadoCLiente;
-	}
-	public void setEstadoCLiente(String estadoCLiente) {
-		this.estadoCLiente = estadoCLiente;
+	public void setDelete(boolean delete) {
+		this.delete = delete;
 	}
 	
 }
