@@ -1,6 +1,6 @@
 package com.estopacomplementos.core.entity;
 
-public class ProductosRequestTO {
+public class AltaProductoRequestTO {
 	
 	private String marcaProducto;
 	private String submarcaProudcto;

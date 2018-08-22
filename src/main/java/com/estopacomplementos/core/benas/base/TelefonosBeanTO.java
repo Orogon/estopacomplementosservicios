@@ -1,8 +1,8 @@
 package com.estopacomplementos.core.benas.base;
 
-public class TelefonosBeanTO {
+public class TelefonosBeanTO {	
 	
-	private String numCelular;
+	private String numCelular;	
 	private String numCasa;
 	private String numNegocio;
 	private String numLibre;

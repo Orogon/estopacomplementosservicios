@@ -10,12 +10,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.estopacomplementos.core.ServiciosApplication;
 import com.estopacomplementos.core.benas.base.DireccionBeanTO;
 import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
-import com.estopacomplementos.core.benas.base.VentaRemisionBenaTO;
+import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.business.GeneraRemisionesComponent;
+import com.estopacomplementos.core.dao.CodigosErrorDAO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
-import com.estopacomplementos.core.entity.ClienteRequestTO;
-import com.estopacomplementos.core.entity.RemisionesRequestTO;
+import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = ServiciosApplication.class)
@@ -27,42 +27,52 @@ public class TestMongo {
 	private GeneraRemisionesComponent remisiones;
 	@Autowired
 	private GestorClientesDAO dao;
+	@Autowired
+	private CodigosErrorDAO erroDao;
 	
 	
 //	@Test
 //	public void registroCliente() {
-//		ClienteRequestTO requestTO = new ClienteRequestTO();		
-//		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");
-//		requestTO.setCreditoDias("8");
+//		AltaClienteRequestTO requestTO = new AltaClienteRequestTO();		
+//		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");		
 //		requestTO.setDireccion(direccionBeanTO());
 //		requestTO.setNombreNegocio("Tlapaleria Michoacan");
 //		requestTO.setNombreResponsable("Juan Alberto Juarez Perez");
 //		requestTO.setTelefonos(telefonosBeanTO());
-//		requestTO.setTipoVenta("Credito");		
+//		requestTO.setRfc("OORC9310136X8");
 //		clientesComponent.registraCliente(requestTO);
 //	}
 	
-	@Test
-	public void registraNota() {
-		RemisionesRequestTO requestTO = new RemisionesRequestTO();
-		requestTO.setFechaRemision("15-08-2018");
-		requestTO.setFolioNota("0001");
-		requestTO.setNombreNegocio("Tlapaleria Michoacan");
-		requestTO.setTipoVenta("Credito");
-		requestTO.setTotalNota("6000");
-		requestTO.setVenta(ventaRemision());
-		remisiones.realizaRemision(requestTO);
-	}
+//	@Test
+//	public void registraNota() {
+//		RemisionesRequestTO requestTO = new RemisionesRequestTO();
+//		requestTO.setFechaRemision("15-08-2018");
+//		requestTO.setFolioNota("0001");
+//		requestTO.setNombreNegocio("Tlapaleria Michoacan");
+//		requestTO.setTipoVenta("Credito");
+//		requestTO.setTotalNota("6000");
+//		requestTO.setVenta(ventaRemision());
+//		remisiones.realizaRemision(requestTO);
+//	}
 	
-	private List<VentaRemisionBenaTO> ventaRemision(){
-		VentaRemisionBenaTO benaTO = new VentaRemisionBenaTO();
-		List<VentaRemisionBenaTO> list = new ArrayList<>();
+//	@Test
+//	public void codigosError() {
+//		CodigosErrorEntityTO entityTO = new CodigosErrorEntityTO();
+//		entityTO.setCode(1);
+//		entityTO.setLanguage("es");
+//		entityTO.setMensaje("Lo sentimos, ocurrio un incidencia al realizar la operacion");
+//		erroDao.registraError(entityTO);
+//	}
+	
+	private List<VentaRemisionBeanTO> ventaRemision(){
+		VentaRemisionBeanTO benaTO = new VentaRemisionBeanTO();
+		List<VentaRemisionBeanTO> list = new ArrayList<>();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba");
 		benaTO.setImporte("566");
 		benaTO.setPrecioVenta("875");
 		list.add(benaTO);
-		benaTO = new VentaRemisionBenaTO();
+		benaTO = new VentaRemisionBeanTO();
 		benaTO.setCantidadProducto("50");
 		benaTO.setDescripcion("Descripcion de Prueba 2");
 		benaTO.setImporte("566");
@@ -77,10 +87,10 @@ public class TestMongo {
 		beanTO.setCalle("Michoacan");
 		beanTO.setCodigoPostal("14260");
 		beanTO.setDelgacionMunicipio("Tlalpan");
-		beanTO.setEstado("Mexico");
+		beanTO.setEstado("CDMX");
 		beanTO.setNumInterior("19");
 		beanTO.setTxtLibre("Edificio B1 Depto 204");
-		beanTO.setReferencias("Saguan negro");
+		beanTO.setColonia("Miguel Hidalgo 1ra Seccion");
 		return beanTO;
 	}
 	

@@ -39,13 +39,14 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter', version:'1.5.14.RELEASE'
 	compile('org.springframework.boot:spring-boot-starter-web'){
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-	}
+	}	
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'	
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'	
-	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.10'
-	
+		
+	compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.7.0'	
+	compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
 	
 	
 }
@@ -56,14 +57,9 @@ configurations.all {
 }
 
 jar {
-	baseName = 'ms-tiempoaire-core'
-	version = '1.0.0'
+	baseName = 'ms-estopacomplementos-core'
+	version = '1.0.0-SNAPSHOT'
 }
-
-archivesBaseName = 'ms-tiempoaire-core'
-group = 'com.bancoazteca.ms'
-description = """MS_TIEMPOAIRE_CORE"""
-version = "0.0.1-SNAPSHOT"
 
 task sourceJar(type: Jar) {
 	from sourceSets.main.allJava

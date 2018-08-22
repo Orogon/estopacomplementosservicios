@@ -1,6 +1,6 @@
 package com.estopacomplementos.core.benas.base;
 
-public class VentaRemisionBenaTO {
+public class VentaRemisionBeanTO {
 	
 	private String cantidadProducto;
 	private String descripcion;

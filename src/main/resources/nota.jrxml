@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nota" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89981dea-35ac-4271-9c09-ab5857f72303">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="Dataset1" uuid="9bd663c1-7063-453a-9eee-17eed6760c2a">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="nombreNegocio" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="productosVendidos" class="com.estopacomplementos.core.benas.base.VentaRemisionBeanTO"/>
+	<background>
+		<band height="82" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="146" y="0" width="270" height="43" uuid="428b0643-e482-448f-beaf-897ff8257fd9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Bauhaus 93" size="24" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Estopa y Complementos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="85" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<rectangle radius="10">
+				<reportElement x="-10" y="0" width="591" height="80" uuid="f90144f9-1fa2-4d82-b08d-7a1442c445a0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#406DD6"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="10" width="100" height="20" uuid="c27f5644-4905-4232-84f2-4ce0a4558e31"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del negocio: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="30" width="100" height="20" uuid="6d7ba20a-e14f-464c-8294-faa74abed5b3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Direccion: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="10" width="80" height="20" uuid="a05bfe0a-39f7-47c1-b0a6-cb9338591999"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de Venta: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="30" width="80" height="20" uuid="79fe4182-f65e-4c34-8da4-669895b3f6de"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Dias de Credito: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="10" width="100" height="20" uuid="9d2c4624-ae72-422b-8abf-f1a4bc05a117"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Remision: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="30" width="100" height="20" uuid="930889b4-5275-4aee-832d-591e80ec84bb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Folio de Remision: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="50" width="50" height="20" uuid="8331efe3-43d6-40f6-88f1-bb5060e01438"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Colonia: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="50" width="40" height="20" uuid="d4005d02-da14-4945-bdf8-b69954574e58"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Estado: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="50" width="50" height="20" uuid="b66e1cdd-bf9b-4e75-b3f6-879e06651348"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Telefono: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="10" width="151" height="20" uuid="ec15719e-cb21-475d-a77d-4332be1870e6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{nombreNegocio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<rectangle radius="8">
+				<reportElement x="-11" y="5" width="590" height="30" uuid="dd2928f8-ade5-41cc-ba69-a0d7b18ed584"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#4967C9"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="17" y="10" width="65" height="20" uuid="f83c5e9d-39c9-44b1-b7fd-763a6b227bec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="10" width="60" height="21" uuid="64311b59-f94d-4f93-819c-289f935bf6f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="10" width="100" height="20" uuid="5faf19cd-d500-40ec-a4cd-639d06a26dc4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c99d9d1c-ad4f-41f6-bfe6-3c995544406e"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="10" width="72" height="20" uuid="3c968ece-1386-45d0-ba83-920b234ed4be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Precio Unitario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField evaluationTime="Column">
+				<reportElement x="18" y="6" width="64" height="15" uuid="4988897d-65de-4c33-b7d1-7d0ada15968d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c99d9d1c-ad4f-41f6-bfe6-3c995544406e"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productosVendidos}.getCantidadProducto()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="6" width="270" height="15" uuid="8dcf1793-a4b6-4a55-8d75-b432a024fc5f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d128990c-03cf-4d3d-8350-28b7cfc0f265"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productosVendidos}.getDescripcion()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="6" width="50" height="15" uuid="7a92a1dc-a06f-4e93-a37b-5cf7ce77b21b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b1286a4a-8809-4c08-935d-4e689309d680"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productosVendidos}.getPrecioVenta()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="6" width="50" height="15" uuid="f5e9105d-f68e-4a48-add0-46d4a1230ab5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6caf75d0-d5f7-4cf5-9063-6dcabe15b56c"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{productosVendidos}.getImporte()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="494" y="6" width="6" height="15" uuid="e28c712b-2601-42f6-a3d6-ace46580759b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="6" width="6" height="15" uuid="68a83446-2b05-4a49-87d8-a3d5b8700736"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="100" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="-10" y="10" width="590" height="75" uuid="27dcb1bc-dca1-4241-b743-c333f7df19a0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#2A45BF"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</pageFooter>
+</jasperReport>
