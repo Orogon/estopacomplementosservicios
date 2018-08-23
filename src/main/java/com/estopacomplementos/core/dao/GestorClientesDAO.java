@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.EditarClienteRequesTO;
+import com.estopacomplementos.core.entity.EliminarClienteRequestTO;
 import com.estopacomplementos.core.utils.ValidacionesUtils;
 import com.mongodb.WriteResult;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
@@ -32,26 +33,44 @@ public class GestorClientesDAO {
 	@Qualifier("primaryMongoTemplate")
 	private MongoTemplate mongoTemplate;
 	
+	/**
+	 * @param requestTO
+	 */
 	public void registraCliente(AltaClienteRequestTO requestTO) {
 		log.info("Entra al metodo de registraCliente :::: GestorClientesDAO");
 		ClienteEntityTO entityTO = creaEntityCliente(requestTO);	
 		mongoTemplate.save(entityTO);	
 	}
 	
+	/**
+	 * @return
+	 */
 	public List<ClienteEntityTO> consultaClientes(){
-		return mongoTemplate.findAll(ClienteEntityTO.class);
+		Query query = new Query(Criteria.where("activo").is(true));
+		return mongoTemplate.find(query, ClienteEntityTO.class);
 	}
 	
-	public ClienteEntityTO busquedaPorNombreNegocio(String nombreNegocio) {		
+	/**
+	 * @param nombreNegocio
+	 * @return
+	 */
+	public ClienteEntityTO busquedaPorNombreNegocio(String nombreNegocio) {	
 		Query query = new Query(Criteria.where("nombreNegocio").is(nombreNegocio));		
 		return mongoTemplate.findOne(query, ClienteEntityTO.class);
 	}
 	
-	public ClienteEntityTO busquedaPorNombreEncargado(String nombreEncargado) {		
+	/**
+	 * @param nombreEncargado
+	 * @return
+	 */
+	public ClienteEntityTO busquedaPorNombreEncargado(String nombreEncargado) {	
 		Query query = new Query(Criteria.where("nombreResponsable").is(nombreEncargado));		
 		return mongoTemplate.findOne(query, ClienteEntityTO.class);
 	}
 	
+	/**
+	 * @param requesTO
+	 */
 	public void editarCliente(EditarClienteRequesTO requesTO) {
 		Query query = new Query(Criteria.where("_id").is(requesTO.getIdCliente()));
 		Update update = new Update();
@@ -64,7 +83,21 @@ public class GestorClientesDAO {
 			update.addToSet("telefonos", requesTO.getTelefonos());
 		WriteResult result = mongoTemplate.updateFirst(query, update, ClienteEntityTO.class);
 		if(result.isUpdateOfExisting())
-			log.info("Se actualizo correctamente el cliente");
+			log.info("Se actualizo correctamente el cliente con el id: " + requesTO.getIdCliente());
+	}
+	
+	/**
+	 * @param requestTO
+	 */
+	public void eliminarCliente(EliminarClienteRequestTO requestTO) {
+		log.info("Entra al metodo de eliminarCliente ::::: GestorClientesDAO");
+		Query query = new Query(Criteria.where("_id").is(requestTO.getIdCliente()));
+		Update update = new Update();
+		update.set("fechaModificacion", new Date());
+		update.set("activo", false);
+		WriteResult result = mongoTemplate.updateFirst(query, update, ClienteEntityTO.class);
+		if(result.isUpdateOfExisting())
+			log.info("Se ha eliminado correctamente el siguiente cliente : " + requestTO.getIdCliente());
 	}
 	
 	private static ClienteEntityTO creaEntityCliente(AltaClienteRequestTO requestTO) {

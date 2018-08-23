@@ -12,6 +12,7 @@ import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;
 import com.estopacomplementos.core.entity.ConsultaClienteResponseTO;
 import com.estopacomplementos.core.entity.ConsultaClientesResponseTO;
 import com.estopacomplementos.core.entity.EditarClienteRequesTO;
+import com.estopacomplementos.core.entity.EliminarClienteRequestTO;
 import com.estopacomplementos.core.exceptions.ManejadorMensajes;
 import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 import com.estopacomplementos.core.utils.ValidacionesUtils;
@@ -34,6 +35,10 @@ public class ClientesComponent {
 	private static final Integer TELEFONO_INVALIDO_LOCAL = 4;
 	private static final Integer DIRECCION_VACIA = 3;
 	
+	/**
+	 * @param requestTO
+	 * @return
+	 */
 	public ResponseTO registraCliente(AltaClienteRequestTO requestTO) {
 		log.info("Entra al metodo de registraCliente :::: ClientesComponent");
 		ResponseTO responseTO = new ResponseTO();		
@@ -49,6 +54,9 @@ public class ClientesComponent {
 		return responseTO;
 	}
 	
+	/**
+	 * @return
+	 */
 	public ConsultaClientesResponseTO consultaClientes() {
 		log.info("Entra al metodo de ConsultaTodosClientesResponseTO :::: ClientesComponent");
 		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
@@ -61,11 +69,15 @@ public class ClientesComponent {
 		return responseTO;
 	}
 	
+	/**
+	 * @param requesTO
+	 * @return
+	 */
 	public ConsultaClienteResponseTO consultaCliente(ConsultaClienteRequesTO requesTO) {
 		log.info("Entra al metodo de consultaCliente :::: ClientesComponent");
 		ConsultaClienteResponseTO responseTO = new ConsultaClienteResponseTO();
 		try {
-			if(ValidacionesUtils.isNullOrEmpty(requesTO.getNombreEncargado())) {
+			if(!ValidacionesUtils.isNullOrEmpty(requesTO.getNombreEncargado())) {
 				log.info("Entra a realizar la consulta por nombre de encargado");
 				responseTO.setCliente(clientesDAO.busquedaPorNombreEncargado(requesTO.getNombreEncargado()));
 			}else {
@@ -79,11 +91,31 @@ public class ClientesComponent {
 		return responseTO;
 	}
 	
+	/**
+	 * @param requesTO
+	 * @return
+	 */
 	public ResponseTO editarCliente(EditarClienteRequesTO requesTO) {
 		log.info("Entra al metodo de editarCliente :::: ClientesComponent");
 		ResponseTO responseTO = new ResponseTO();
 		try {
 			clientesDAO.editarCliente(requesTO);
+			manejadorMensajes.managerSuccess(responseTO);
+		}catch(MensajeExcepcion e) {
+			manejadorMensajes.managerException(e, responseTO);
+		}
+		return responseTO;
+	}
+	
+	/**
+	 * @param requestTO
+	 * @return
+	 */
+	public ResponseTO eliminarCliente(EliminarClienteRequestTO requestTO) {
+		log.info("Entra al metodo de eliminarCliente :::: ClientesComponent");
+		ResponseTO responseTO = new ResponseTO();
+		try {
+			clientesDAO.eliminarCliente(requestTO);
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);

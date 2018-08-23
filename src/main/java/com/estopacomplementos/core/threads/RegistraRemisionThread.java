@@ -22,8 +22,7 @@ public class RegistraRemisionThread extends Thread{
 	private GestorClientesDAO clientesDAO;
 
 	public RegistraRemisionThread(RemisionesRequestTO requestTO, GestorRemisionesDAO remisionesDAO,
-			GestorClientesDAO clientesDAO) {
-		super();
+			GestorClientesDAO clientesDAO) {		
 		this.requestTO = requestTO;
 		this.remisionesDAO = remisionesDAO;
 		this.clientesDAO = clientesDAO;
