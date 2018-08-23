@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.estopacomplementos.core.entity.RemisionesRequestTO;
+import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -37,7 +38,10 @@ public class CrearRemisionComponent {
 	private static final String TELEFONO_NEGOCIO = "telefonoNegocio";
 	private static final String TIPO_VENTA = "tipoVenta";
 	private static final String DIAS_DE_CREDITO = "diasCredito";
-	private static final String FOLIO_NOTA = "folioNota";	
+	private static final String FOLIO_NOTA = "folioNota";
+	
+	private static final Integer ERROR_GENERAR_REMISION = 6;
+	private static final Integer ERROR_LISTA_VACIA_PRODUCTOS = 7;
 	
 	
 	/**
@@ -51,8 +55,8 @@ public class CrearRemisionComponent {
 			JasperExportManager.exportReportToPdfFile(jprint, ARCHIVO_PDF_STORAGE+requestTO.getNombreNegocio());
 			log.info("La nota se a generado exitosamente");
 		} catch (JRException e) {
-			/** Agregar error de que no se pudo generar nota y se para el flujo **/
 			e.printStackTrace();
+			throw new MensajeExcepcion(ERROR_GENERAR_REMISION);			
 		}
 	}
 	
@@ -79,7 +83,7 @@ public class CrearRemisionComponent {
 				productosLista = new HashMap<>();
 			}	
 		}else {
-			/** Generar error de lista vacia y retornarlo y parar flujo**/
+			throw new MensajeExcepcion(ERROR_LISTA_VACIA_PRODUCTOS);
 		}		
 		return listaProductosVendidos;
 	}
