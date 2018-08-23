@@ -24,9 +24,8 @@ public class RemisionesRequestTO {
 	@NotBlank(message="El campo de dias de credito no puede venir vacio")
 	private String diasCredito;
 	@NotBlank(message="El folio de nota no puede ir vacio.")
-	private String folioNota;
+	private String folioNota;	
 	
-	private String nombreResponsable;
 	private String direccionNegocio;
 	private String coloniaNegocio;
 	private String estadoNegocio;
@@ -34,8 +33,7 @@ public class RemisionesRequestTO {
 	
 	private String ahorro;
 	private String totalNotaSinDescuento;
-	private String totalNotaConDescuento;
-	
+	private String totalNotaConDescuento;	
 	
 	public String getNombreNegocio() {
 		return nombreNegocio;
@@ -72,12 +70,6 @@ public class RemisionesRequestTO {
 	}
 	public void setFolioNota(String folioNota) {
 		this.folioNota = folioNota;
-	}
-	public String getNombreResponsable() {
-		return nombreResponsable;
-	}
-	public void setNombreResponsable(String nombreResponsable) {
-		this.nombreResponsable = nombreResponsable;
 	}
 	public String getDireccionNegocio() {
 		return direccionNegocio;
