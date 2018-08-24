@@ -19,9 +19,11 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAutoConfiguration(exclude={MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, MongoRepositoriesAutoConfiguration.class})
 public class ServiciosApplication {
 	
+	
+	
 	public static void main(String[] args) {
 		try {
-			SpringApplication.run(ServiciosApplication.class, args);
+			SpringApplication.run(ServiciosApplication.class, args);			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

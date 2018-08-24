@@ -54,12 +54,11 @@ public class GeneraRemisionesComponent {
 	private void registraRemision(RemisionesRequestTO requestTO) {
 		log.info("Entra al metodo de registraRemision :::: RegistraRemisionThread");		
 		ClienteEntityTO entityTO = clientesDAO.busquedaPorNombreNegocio(requestTO.getNombreNegocio());
-		if(!ValidacionesUtils.isNullOrEmpty(entityTO))
+		if(!ValidacionesUtils.isNullOrEmpty(entityTO)) {
 			remisionesDAO.registraNotaCliente(requestTO, entityTO.getId());
-		else
-			throw new MensajeExcepcion(CLIENTE_NO_REGISTRADO);		
-	}
-	
-	
+		} else {
+			throw new MensajeExcepcion(CLIENTE_NO_REGISTRADO);}
+		
+	}	
 
 }

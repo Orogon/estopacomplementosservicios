@@ -28,7 +28,7 @@ public class ManejadorMensajes {
 	
 	private static final String DEFAULT_LANGUAGE = "es";
 	private static final Integer DEFAULT_SUCCESS = 0;
-	private static final Integer DEFAULT_ERROR = -1;
+	private static final Integer DEFAULT_ERROR = 1;
 	private HashMap<String, Map<Integer, String>> codigosError;
 	private static ManejadorMensajes instance;
 	

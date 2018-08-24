@@ -13,10 +13,9 @@ import com.estopacomplementos.core.entity.RemisionesRequestTO;
 import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 
 import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
@@ -28,8 +27,7 @@ public class CrearRemisionComponent {
 	
 	private static final Logger log = LoggerFactory.getLogger(CrearRemisionComponent.class);
 	
-	private static final String ARCHIVO_JASPER = "/home/cesarorozco/git/estopacomplementosservicios/src/main/resources/nota.jasper";
-	private static final String ARCHIVO_PDF_STORAGE = "/home/cesarorozco/Documentos/Remisiones/";
+	private static final String ARCHIVO_JASPER = "E:\\Users\\corozcor\\Documents\\BAZDigital\\Workspace´s\\WorkspaceCesar\\ServiciosEstopaComplementos\\src\\main\\resources\\nota.jasper";
 	private static final String PRODUCTOS_VENDIDOS = "productosVendidos";
 	private static final String NOMBRE_NEGOCIO = "nombreNegocio";
 	private static final String DIRECCION_NEGOCIO = "direccionNegocio";
@@ -51,10 +49,11 @@ public class CrearRemisionComponent {
 		log.info("Entra al metodo de creaRemisionConDatos :::::: CrearRemisionComponent");
 		try {
 			JRDataSource dataSource = new JRBeanCollectionDataSource(creaListaProductos(requestTO));		
-			JasperPrint jprint = (JasperPrint) JasperFillManager.fillReport(ARCHIVO_JASPER, creaParametros(requestTO), dataSource);
-			JasperExportManager.exportReportToPdfFile(jprint, ARCHIVO_PDF_STORAGE+requestTO.getNombreNegocio());
-			log.info("La nota se a generado exitosamente");
-		} catch (JRException e) {
+			JasperPrint jprint = JasperFillManager.fillReport(ARCHIVO_JASPER, creaParametros(requestTO), dataSource);
+//			JasperViewer.viewReport(jprint, true);
+			JasperPrintManager.printReport(jprint, false);
+			log.info("La nota se a generado exitosamente");			
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new MensajeExcepcion(ERROR_GENERAR_REMISION);			
 		}
@@ -65,7 +64,7 @@ public class CrearRemisionComponent {
 		parameters.put(NOMBRE_NEGOCIO, requestTO.getNombreNegocio());
 		parameters.put(DIRECCION_NEGOCIO, requestTO.getDireccionNegocio());
 		parameters.put(COLONIA_NEGOCIO, requestTO.getColoniaNegocio());
-		parameters.put(ESTADO_NEGOCIO, requestTO.getColoniaNegocio());
+		parameters.put(ESTADO_NEGOCIO, requestTO.getEstadoNegocio());
 		parameters.put(TELEFONO_NEGOCIO, requestTO.getTelefonoNegocio());
 		parameters.put(TIPO_VENTA, requestTO.getTipoVenta());
 		parameters.put(DIAS_DE_CREDITO, requestTO.getDiasCredito());
