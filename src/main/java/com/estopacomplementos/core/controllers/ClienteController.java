@@ -17,8 +17,10 @@ import com.estopacomplementos.core.benas.base.ResponseTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;
+import com.estopacomplementos.core.entity.ConsultaClienteResponseTO;
 import com.estopacomplementos.core.entity.ConsultaClientesResponseTO;
 import com.estopacomplementos.core.entity.EditarClienteRequesTO;
+import com.estopacomplementos.core.utils.ConversorUtils;
 
 
 /**
@@ -39,11 +41,12 @@ public class ClienteController {
 	@RequestMapping(value= {"/registracliente"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
 	public ResponseTO registraCliente(@Valid@RequestBody AltaClienteRequestTO clienteRequestTO, HttpSession session) {
 		log.info("Entra al metodo de registraCliente ::::: ClienteController");
-		ResponseTO responseTO = clientesComponent.registraCliente(clienteRequestTO);
+		ResponseTO responseTO = clientesComponent.registraCliente(clienteRequestTO);		
+		log.info("Respuesta: " + ConversorUtils.convierteObjetoAJson(responseTO));
 		return responseTO;
 	}
 	
-	@RequestMapping(value= {"/consultaclientes"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
+	@RequestMapping(value= {"/consultaclientes"}, method = RequestMethod.GET)
 	public ConsultaClientesResponseTO consultaClientes(HttpSession session) {
 		log.info("Entra al metodo de consultaClientes ::::: ClienteController");
 		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
@@ -52,10 +55,10 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(value= {"/consultacliente"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})
-	public ConsultaClientesResponseTO consultaCliente(@Valid @RequestBody ConsultaClienteRequesTO requesTO, HttpSession session) {
+	public ConsultaClienteResponseTO consultaCliente(@Valid @RequestBody ConsultaClienteRequesTO requesTO, HttpSession session) {
 		log.info("Entra al metodo de consultaCliente ::::: ClienteController");
-		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
-		responseTO = clientesComponent.consultaClientes();
+		ConsultaClienteResponseTO responseTO = new ConsultaClienteResponseTO();
+		responseTO = clientesComponent.consultaCliente(requesTO);
 		return responseTO;
 	}
 	

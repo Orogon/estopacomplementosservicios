@@ -11,8 +11,14 @@ import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
  */
 public class AltaClienteRequestTO {
 	
+	@NotBlank(message="El codigo negocio no puede venir vacio.")
+	private String codigoNegocio;
 	@NotBlank(message="El nombre del responsable no puede venir vacio.")
 	private String nombreResponsable;
+	@NotBlank(message="El apellido paterno del responsable no puede venir vacio.")
+	private String apePatResponsable;
+	@NotBlank(message="El apellido materno del responsable no puede venir vacio.")
+	private String apeMatResponsable;
 	@NotBlank(message="El nombre del negocio no puede venir vacio.")
 	private String nombreNegocio;
 	private TelefonosBeanTO telefonos;	
@@ -23,6 +29,24 @@ public class AltaClienteRequestTO {
 	private String notaLibre;
 	
 	
+	public String getApePatResponsable() {
+		return apePatResponsable;
+	}
+	public void setApePatResponsable(String apePatResponsable) {
+		this.apePatResponsable = apePatResponsable;
+	}
+	public String getApeMatResponsable() {
+		return apeMatResponsable;
+	}
+	public void setApeMatResponsable(String apeMatResponsable) {
+		this.apeMatResponsable = apeMatResponsable;
+	}
+	public String getCodigoNegocio() {
+		return codigoNegocio;
+	}
+	public void setCodigoNegocio(String codigoNegocio) {
+		this.codigoNegocio = codigoNegocio;
+	}
 	public String getNombreResponsable() {
 		return nombreResponsable;
 	}

@@ -2,34 +2,34 @@ package com.estopacomplementos.core.benas.base;
 
 public class TelefonosBeanTO {	
 	
-	private String numCelular;	
-	private String numCasa;
-	private String numNegocio;
-	private String numLibre;
+	private String numCelularNeg;	
+	private String numfijoNeg;
+	private String numCelularResp;
+	private String numfijoResp;
 	
-	public String getNumCelular() {
-		return numCelular;
+	public String getNumCelularNeg() {
+		return numCelularNeg;
 	}
-	public void setNumCelular(String numCelular) {
-		this.numCelular = numCelular;
+	public void setNumCelularNeg(String numCelularNeg) {
+		this.numCelularNeg = numCelularNeg;
 	}
-	public String getNumCasa() {
-		return numCasa;
+	public String getNumfijoNeg() {
+		return numfijoNeg;
 	}
-	public void setNumCasa(String numCasa) {
-		this.numCasa = numCasa;
+	public void setNumfijoNeg(String numfijoNeg) {
+		this.numfijoNeg = numfijoNeg;
 	}
-	public String getNumNegocio() {
-		return numNegocio;
+	public String getNumCelularResp() {
+		return numCelularResp;
 	}
-	public void setNumNegocio(String numNegocio) {
-		this.numNegocio = numNegocio;
+	public void setNumCelularResp(String numCelularResp) {
+		this.numCelularResp = numCelularResp;
 	}
-	public String getNumLibre() {
-		return numLibre;
+	public String getNumfijoResp() {
+		return numfijoResp;
 	}
-	public void setNumLibre(String numLibre) {
-		this.numLibre = numLibre;
+	public void setNumfijoResp(String numfijoResp) {
+		this.numfijoResp = numfijoResp;
 	}	
-
+	
 }

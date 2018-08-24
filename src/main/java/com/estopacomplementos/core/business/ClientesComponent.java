@@ -1,5 +1,7 @@
 package com.estopacomplementos.core.business;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.estopacomplementos.core.benas.base.ResponseTO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
+import com.estopacomplementos.core.entity.ClienteEntityTO;
 import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;
 import com.estopacomplementos.core.entity.ConsultaClienteResponseTO;
 import com.estopacomplementos.core.entity.ConsultaClientesResponseTO;
@@ -34,19 +37,20 @@ public class ClientesComponent {
 	private static final Integer TELEFONO_INVALIDO_CELULAR = 2;
 	private static final Integer TELEFONO_INVALIDO_LOCAL = 4;
 	private static final Integer DIRECCION_VACIA = 3;
+	private static final Integer LISTA_CLIENTES_VACIA = 10;
 	
 	/**
 	 * @param requestTO
 	 * @return
 	 */
-	public ResponseTO registraCliente(AltaClienteRequestTO requestTO) {
+	public ResponseTO registraCliente(AltaClienteRequestTO requestTO) {		
 		log.info("Entra al metodo de registraCliente :::: ClientesComponent");
 		ResponseTO responseTO = new ResponseTO();		
 		try {
 			validaTelefonoCelular(requestTO);
 			validaTelefonoLocal(requestTO);
 			validaDireccionCompleta(requestTO);
-			clientesDAO.registraCliente(requestTO);
+			clientesDAO.registraCliente(requestTO);			
 			manejadorMensajes.managerSuccess(responseTO);
 		} catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
@@ -61,7 +65,9 @@ public class ClientesComponent {
 		log.info("Entra al metodo de ConsultaTodosClientesResponseTO :::: ClientesComponent");
 		ConsultaClientesResponseTO responseTO = new ConsultaClientesResponseTO();
 		try {
-			responseTO.setClientes(clientesDAO.consultaClientes());
+			List<ClienteEntityTO> listaClientes = clientesDAO.consultaClientes();
+			validaListaClientes(listaClientes);
+			responseTO.setClientes(listaClientes);
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
@@ -124,16 +130,20 @@ public class ClientesComponent {
 	}
 	
 	private void validaTelefonoCelular(AltaClienteRequestTO requestTO) {
-		if(requestTO.getTelefonos().getNumCelular().length() > 10 || 
-				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCelular())) {
+		if(requestTO.getTelefonos().getNumCelularNeg().length() > 10 || 
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCelularNeg()) ||
+				requestTO.getTelefonos().getNumCelularResp().length() > 10 ||
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCelularResp())) {
 			log.info("El numero que se encuentra invalido es el celular");
 			throw new MensajeExcepcion(TELEFONO_INVALIDO_CELULAR);
 		}
 	}
 	
 	private void validaTelefonoLocal(AltaClienteRequestTO requestTO) {
-		if(requestTO.getTelefonos().getNumCasa().length() > 10 || 
-				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumCasa())) {
+		if(requestTO.getTelefonos().getNumfijoNeg().length() > 10 || 
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumfijoNeg()) ||
+				requestTO.getTelefonos().getNumfijoResp().length() > 10 ||
+				ValidacionesUtils.isNullOrEmpty(requestTO.getTelefonos().getNumfijoResp())) {
 			log.info("El numero que se encuentra invalido es el local");
 			throw new MensajeExcepcion(TELEFONO_INVALIDO_LOCAL);
 		}
@@ -144,5 +154,10 @@ public class ClientesComponent {
 			throw new MensajeExcepcion(DIRECCION_VACIA);
 		}
 	}
-
+	
+	private void validaListaClientes(List<ClienteEntityTO> listaClientes) {
+		if(listaClientes.size()<1)
+			throw new MensajeExcepcion(LISTA_CLIENTES_VACIA);
+	}
+  
 }

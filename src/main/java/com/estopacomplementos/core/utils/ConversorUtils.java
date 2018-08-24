@@ -24,4 +24,14 @@ public class ConversorUtils {
 		return requestMap;
 	}
 	
+	public static String convierteObjetoAJson(Object objeto){
+		String jsonObject = null;
+		try {			
+			jsonObject = mapper.writeValueAsString(objeto);			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
+	}
+	
 }

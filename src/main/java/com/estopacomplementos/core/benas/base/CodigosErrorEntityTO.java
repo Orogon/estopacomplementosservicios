@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @author Cesar M orozco R
  *
  */
-@Document(collection="CodigosDeErros")
+@Document(collection="CodigosDeError")
 public class CodigosErrorEntityTO {
 	
 	@Id

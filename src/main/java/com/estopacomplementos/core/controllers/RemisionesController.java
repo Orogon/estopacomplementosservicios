@@ -36,7 +36,7 @@ public class RemisionesController {
 	@RequestMapping(value= "/consultarfolio", method = RequestMethod.GET)
 	public String consultaFolio() {
 		log.info("Entra al metodo de consultaFolio ::::: RemisionesController");
-		return CrearFolioNota.crearFolioNota();
+		return "{\"folioRemision\":\""+CrearFolioNota.crearFolioNota().toUpperCase()+"\"}";
 	}
 	
 	@RequestMapping(value= {"/realizaremision"}, produces= {"application/json"}, method = RequestMethod.POST, consumes= {"application/json"})

@@ -109,6 +109,8 @@ public class GestorClientesDAO {
 		clienteEntityTO.setFechaRegistro(new Date());
 		clienteEntityTO.setNombreNegocio(requestTO.getNombreNegocio());
 		clienteEntityTO.setNombreResponsable(requestTO.getNombreResponsable());
+		clienteEntityTO.setApePatResponsable(requestTO.getApePatResponsable());
+		clienteEntityTO.setApeMatResponsable(requestTO.getApeMatResponsable());
 		clienteEntityTO.setTelefonos(requestTO.getTelefonos());	
 		clienteEntityTO.setNotaLibre(requestTO.getNotaLibre());
 		return clienteEntityTO;

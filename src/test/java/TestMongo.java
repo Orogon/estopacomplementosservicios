@@ -31,17 +31,17 @@ public class TestMongo {
 	private CodigosErrorDAO erroDao;
 	
 	
-//	@Test
-//	public void registroCliente() {
-//		AltaClienteRequestTO requestTO = new AltaClienteRequestTO();		
-//		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");		
-//		requestTO.setDireccion(direccionBeanTO());
-//		requestTO.setNombreNegocio("Tlapaleria Michoacan");
-//		requestTO.setNombreResponsable("Juan Alberto Juarez Perez");
-//		requestTO.setTelefonos(telefonosBeanTO());
-//		requestTO.setRfc("OORC9310136X8");
-//		clientesComponent.registraCliente(requestTO);
-//	}
+	@Test
+	public void registroCliente() {
+		AltaClienteRequestTO requestTO = new AltaClienteRequestTO();		
+		requestTO.setCorreoElectronico("cesarorozcorivera@yahoo.com");		
+		requestTO.setDireccion(direccionBeanTO());
+		requestTO.setNombreNegocio("Tlapaleria Michoacan");
+		requestTO.setNombreResponsable("Juan Alberto Juarez Perez");
+		requestTO.setTelefonos(telefonosBeanTO());
+		requestTO.setRfc("OORC9310136X8");
+		clientesComponent.registraCliente(requestTO);
+	}
 	
 //	@Test
 //	public void registraNota() {
@@ -96,9 +96,9 @@ public class TestMongo {
 	
 	private TelefonosBeanTO telefonosBeanTO() {
 		TelefonosBeanTO beanTO = new TelefonosBeanTO();
-		beanTO.setNumCasa("26071038");
-		beanTO.setNumCelular("5564596649");
-		beanTO.setNumNegocio("59370281");
+//		beanTO.setNumCasa("26071038");
+//		beanTO.setNumCelular("5564596649");
+//		beanTO.setNumNegocio("59370281");
 		return beanTO;
 	}
 }
