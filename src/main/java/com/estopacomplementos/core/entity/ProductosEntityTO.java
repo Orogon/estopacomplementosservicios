@@ -12,8 +12,6 @@ import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
 @Document(collection="Productos")
 public class ProductosEntityTO extends FrecuentesEntityTO{
 	
-	@Id
-	private String id;
 	private String codigoProducto;
 	private String marcaProducto;
 	private String submarcaProducto;
@@ -22,12 +20,6 @@ public class ProductosEntityTO extends FrecuentesEntityTO{
 	private String precioVenta;
 	private String precioCompra;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getCodigoProducto() {
 		return codigoProducto;
 	}

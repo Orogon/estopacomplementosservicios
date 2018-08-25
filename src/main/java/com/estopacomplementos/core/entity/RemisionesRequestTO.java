@@ -17,14 +17,14 @@ public class RemisionesRequestTO {
 	private String nombreNegocio;
 	@NotBlank(message="La fecha de remision no puede ir vacia.")
 	private String fechaRemision;
-	@NotEmpty(message="LA lista de productos vendidos no puede venir vacia.")
+	@NotEmpty(message="La lista de productos vendidos no puede venir vacia.")
 	private List<VentaRemisionBeanTO> venta;
 	@NotBlank(message="El tipo de venta no puede ir vacio.")
 	private String tipoVenta;
 	@NotBlank(message="El campo de dias de credito no puede venir vacio")
 	private String diasCredito;
 	@NotBlank(message="El folio de nota no puede ir vacio.")
-	private String folioNota;	
+	private String folioNota;
 	
 	private String direccionNegocio;
 	private String coloniaNegocio;
@@ -34,6 +34,7 @@ public class RemisionesRequestTO {
 	private String ahorro;
 	private String totalNotaSinDescuento;
 	private String totalNotaConDescuento;	
+	
 	
 	public String getNombreNegocio() {
 		return nombreNegocio;

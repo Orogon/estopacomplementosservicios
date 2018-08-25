@@ -27,7 +27,7 @@ public class CrearRemisionComponent {
 	
 	private static final Logger log = LoggerFactory.getLogger(CrearRemisionComponent.class);
 	
-	private static final String ARCHIVO_JASPER = "E:\\Users\\corozcor\\Documents\\BAZDigital\\Workspace´s\\WorkspaceCesar\\ServiciosEstopaComplementos\\src\\main\\resources\\nota.jasper";
+	private static final String ARCHIVO_JASPER = "C:\\Users\\Desarrollo\\Documents\\WorkspaceServicios\\estopacomplementosservicios\\src\\main\\resources\\nota.jasper";
 	private static final String PRODUCTOS_VENDIDOS = "productosVendidos";
 	private static final String NOMBRE_NEGOCIO = "nombreNegocio";
 	private static final String DIRECCION_NEGOCIO = "direccionNegocio";

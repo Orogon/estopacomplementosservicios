@@ -30,16 +30,22 @@ public class ProductosComponent {
 	
 	private static final Integer NINGUN_PRODUCTO = 8;
 	private static final Integer PRODUCTO_INEXISTENTE = 9;
+	private static final Integer PRODUCTO_REPETIDO = 11;
 	
 	@Autowired
 	private GestorProductosDAO productosDAO;
 	@Autowired
 	private ManejadorMensajes manejadorMensajes;
 	
+	/**
+	 * @param requestTO
+	 * @return
+	 */
 	public ResponseTO registraProducto(AltaProductoRequestTO requestTO) {
 		log.info("Entra al metodo de registraProducto :::: ProductosComponent");
 		ResponseTO responseTO = new ResponseTO();
 		try {
+			productoRegistradoValida(requestTO);
 			productosDAO.registraProducto(requestTO);
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
@@ -48,6 +54,9 @@ public class ProductosComponent {
 		return responseTO;
 	}
 	
+	/**
+	 * @return
+	 */
 	public ConsultaProductosResponseTO consultaProductos() {
 		log.info("Entra al metodo de consultaProductos :::: ProductosComponent");
 		ConsultaProductosResponseTO responseTO = new ConsultaProductosResponseTO();
@@ -60,6 +69,10 @@ public class ProductosComponent {
 		return responseTO;
 	}
 	
+	/**
+	 * @param requestTO
+	 * @return
+	 */
 	public ConsultaProductoResponseTO consultaProducto(ConsultaProductoRequestTO requestTO) {
 		ConsultaProductoResponseTO responseTO = new ConsultaProductoResponseTO();
 		try {
@@ -78,6 +91,10 @@ public class ProductosComponent {
 		
 	}
 	
+	/**
+	 * @param requestTO
+	 * @return
+	 */
 	public ResponseTO eliminaProducto(EliminaProductoRequestTO requestTO) {
 		ResponseTO responseTO = new ResponseTO();
 		try {
@@ -100,6 +117,12 @@ public class ProductosComponent {
 			throw new MensajeExcepcion(NINGUN_PRODUCTO);
 		}
 		return productos;
+	}
+	
+	private void productoRegistradoValida(AltaProductoRequestTO requestTO) {
+		if(productosDAO.validaProducto(requestTO)) {
+			throw new MensajeExcepcion(PRODUCTO_REPETIDO);
+		}
 	}
 
 }

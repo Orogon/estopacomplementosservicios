@@ -67,6 +67,11 @@ public class GestorProductosDAO {
 			log.info("Se elimino correctamente el producto con el id : " + requestTO.getIdProducto());
 	}
 	
+	public boolean validaProducto(AltaProductoRequestTO requestTO) {
+		Query query = new Query(Criteria.where("nombreProducto").is(requestTO.getNombreProducto()).and("activo").is(true));
+		return mongoTemplate.exists(query, ProductosEntityTO.class);
+	}
+	
 	private ProductosEntityTO creaBeanProductos(AltaProductoRequestTO requestTO) {
 		ProductosEntityTO entityTO = new ProductosEntityTO();
 		entityTO.setCodigoProducto(requestTO.getCodigoProducto());
