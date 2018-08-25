@@ -42,8 +42,8 @@ public class GeneraRemisionesComponent {
 		log.info("Entra al metodo de realizaRemision ::::: GeneraRemisionesComponent");
 		ResponseTO responseTO = new ResponseTO();
 		try {
-			remisionUtils.creaRemisionConDatos(requestTO);
-			registraRemision(requestTO);			
+			registraRemision(requestTO);
+			remisionUtils.creaRemisionConDatos(requestTO);						
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);

@@ -17,6 +17,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * @author Cesar M Orozco R
@@ -50,7 +51,8 @@ public class CrearRemisionComponent {
 		try {
 			JRDataSource dataSource = new JRBeanCollectionDataSource(creaListaProductos(requestTO));		
 			JasperPrint jprint = JasperFillManager.fillReport(ARCHIVO_JASPER, creaParametros(requestTO), dataSource);
-//			JasperViewer.viewReport(jprint, true);
+			JasperViewer viewer = new JasperViewer(jprint);
+			viewer.setVisible(true);
 			JasperPrintManager.printReport(jprint, false);
 			log.info("La nota se a generado exitosamente");			
 		} catch (Exception e) {
