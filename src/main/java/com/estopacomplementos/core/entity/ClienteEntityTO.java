@@ -2,9 +2,9 @@ package com.estopacomplementos.core.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.estopacomplementos.core.benas.base.DireccionBeanTO;
-import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
-import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
+import com.estopacomplementos.core.beans.base.DireccionBeanTO;
+import com.estopacomplementos.core.beans.base.FrecuentesEntityTO;
+import com.estopacomplementos.core.beans.base.TelefonosBeanTO;
 
 @Document(collection="Clientes")
 public class ClienteEntityTO extends FrecuentesEntityTO{

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
+import com.estopacomplementos.core.beans.base.VentaRemisionBeanTO;
 
 /**
  * @author Cesar M Orozco R

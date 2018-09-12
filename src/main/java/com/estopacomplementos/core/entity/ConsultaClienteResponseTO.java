@@ -1,6 +1,6 @@
 package com.estopacomplementos.core.entity;
 
-import com.estopacomplementos.core.benas.base.ResponseTO;
+import com.estopacomplementos.core.beans.base.ResponseTO;
 
 /**
  * @author Cesar M Orozco R

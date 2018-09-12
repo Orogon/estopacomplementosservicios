@@ -2,8 +2,8 @@ package com.estopacomplementos.core.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.estopacomplementos.core.benas.base.DireccionBeanTO;
-import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
+import com.estopacomplementos.core.beans.base.DireccionBeanTO;
+import com.estopacomplementos.core.beans.base.TelefonosBeanTO;
 
 /**
  * @author Cesar M Orozco R

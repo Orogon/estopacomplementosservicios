@@ -2,7 +2,7 @@ package com.estopacomplementos.core.entity;
 
 import java.util.List;
 
-import com.estopacomplementos.core.benas.base.ResponseTO;
+import com.estopacomplementos.core.beans.base.ResponseTO;
 
 /**
  * @author Cesar M Orozco R

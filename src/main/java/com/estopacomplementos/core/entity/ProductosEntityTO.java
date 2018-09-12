@@ -3,7 +3,7 @@ package com.estopacomplementos.core.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.estopacomplementos.core.benas.base.FrecuentesEntityTO;
+import com.estopacomplementos.core.beans.base.FrecuentesEntityTO;
 
 /**
  * @author Cesar M Orozco R

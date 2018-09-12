@@ -1,4 +1,4 @@
-package com.estopacomplementos.core.benas.base;
+package com.estopacomplementos.core.beans.base;
 
 import org.hibernate.validator.constraints.NotBlank;
 

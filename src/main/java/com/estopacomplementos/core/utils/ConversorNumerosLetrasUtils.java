@@ -2,9 +2,9 @@ package com.estopacomplementos.core.utils;
 
 import java.math.BigDecimal;
 
-public class ConversorNumerosLetrasUtils {
-
-	private static String convierteNumerosATexto(String numeroEntero) {
+public class ConversorNumerosLetrasUtils { 
+	
+	public static String convierteNumerosATexto(String numeroEntero) {
 		StringBuilder result = new StringBuilder();
 		BigDecimal totalBigDecimal = new BigDecimal(numeroEntero).setScale(2, BigDecimal.ROUND_DOWN);
 		long parteEntera = totalBigDecimal.toBigInteger().longValue();
@@ -13,19 +13,19 @@ public class ConversorNumerosLetrasUtils {
 		int triMillones = (int) ((parteEntera / 1000000) % 1000);
 		int triMilMillones = (int) ((parteEntera / 1000000000) % 1000);
 		if (parteEntera == 0) {
-			result.append("Cero ");
+			result.append("CERO ");
 			return result.toString();
 		}
 		if (triMilMillones > 0)
-			result.append(triTexto(triMilMillones).toString() + "Mil ");
+			result.append(triTexto(triMilMillones).toString() + "MIL ");
 		if (triMillones > 0)
 			result.append(triTexto(triMillones).toString());
 		if (triMilMillones == 0 && triMillones == 1)
-			result.append("Millón ");
+			result.append("MILLÓN ");
 		else if (triMilMillones > 0 || triMillones > 0)
-			result.append("Millones ");
+			result.append("MILLONES ");
 		if (triMiles > 0)
-			result.append(triTexto(triMiles).toString() + "Mil ");
+			result.append(triTexto(triMiles).toString() + "MIL ");
 		if (triUnidades > 0)
 			result.append(triTexto(triUnidades).toString());
 		return result.toString();
@@ -41,34 +41,34 @@ public class ConversorNumerosLetrasUtils {
 			break;
 		case 1:
 			if (decenas == 0 && unidades == 0) {
-				result.append("Cien ");
+				result.append("CIEN ");
 				return result;
 			} else
-				result.append("Ciento ");
+				result.append("CIENTO ");
 			break;
 		case 2:
-			result.append("Doscientos ");
+			result.append("DOSCIENTOS ");
 			break;
 		case 3:
-			result.append("Trescientos ");
+			result.append("TRESCIENTOS ");
 			break;
 		case 4:
-			result.append("Cuatrocientos ");
+			result.append("CUATROCIENTOS ");
 			break;
 		case 5:
-			result.append("Quinientos ");
+			result.append("QUINIENTOS ");
 			break;
 		case 6:
-			result.append("Seiscientos ");
+			result.append("SEISCIENTOS ");
 			break;
 		case 7:
-			result.append("Setecientos ");
+			result.append("SETECIENTOS ");
 			break;
 		case 8:
-			result.append("Ochocientos ");
+			result.append("OCHOCIENTOS ");
 			break;
 		case 9:
-			result.append("Novecientos ");
+			result.append("NOVECIENTOS ");
 			break;
 		}
 
@@ -77,88 +77,88 @@ public class ConversorNumerosLetrasUtils {
 			break;
 		case 1:
 			if (unidades == 0) {
-				result.append("Diez ");
+				result.append("DIEZ ");
 				return result;
 			} else if (unidades == 1) {
-				result.append("Once ");
+				result.append("ONCE ");
 				return result;
 			} else if (unidades == 2) {
-				result.append("Doce ");
+				result.append("DOCE ");
 				return result;
 			} else if (unidades == 3) {
-				result.append("Trece ");
+				result.append("TRECE ");
 				return result;
 			} else if (unidades == 4) {
-				result.append("Catorce ");
+				result.append("CATORCE ");
 				return result;
 			} else if (unidades == 5) {
-				result.append("Quince ");
+				result.append("QUINCE ");
 				return result;
 			} else
-				result.append("Dieci");
+				result.append("DIECI");
 			break;
 		case 2:
 			if (unidades == 0) {
-				result.append("Veinte ");
+				result.append("VEINTE ");
 				return result;
 			} else
-				result.append("Veinti");
+				result.append("VEINTI");
 			break;
 		case 3:
-			result.append("Treinta ");
+			result.append("TREINTA ");
 			break;
 		case 4:
-			result.append("Cuarenta ");
+			result.append("CUARENTA ");
 			break;
 		case 5:
-			result.append("Cincuenta ");
+			result.append("CINCUENTA ");
 			break;
 		case 6:
-			result.append("Sesenta ");
+			result.append("SESENTA ");
 			break;
 		case 7:
-			result.append("Setenta ");
+			result.append("SETENTA ");
 			break;
 		case 8:
-			result.append("Ochenta ");
+			result.append("OCHENTA ");
 			break;
 		case 9:
-			result.append("Noventa ");
+			result.append("NOVENTA ");
 			break;
 		}
 
 		if (decenas > 2 && unidades > 0)
-			result.append("y ");
+			result.append("Y ");
 
 		switch (unidades) {
 		case 0:
 			break;
 		case 1:
-			result.append("Un ");
+			result.append("UN ");
 			break;
 		case 2:
-			result.append("Dos ");
+			result.append("DOS ");
 			break;
 		case 3:
-			result.append("Tres ");
+			result.append("TRES ");
 			break;
 		case 4:
-			result.append("Cuatro ");
+			result.append("CUATRO ");
 			break;
 		case 5:
-			result.append("Cinco ");
+			result.append("CINCO ");
 			break;
 		case 6:
-			result.append("Seis ");
+			result.append("SEIS ");
 			break;
 		case 7:
-			result.append("Siete ");
+			result.append("SIETE ");
 			break;
 		case 8:
-			result.append("Ocho ");
+			result.append("OCHO ");
 			break;
 		case 9:
-			result.append("Nueve ");
+			result.append("NUEVE ");
 			break;
 		}
 		return result;

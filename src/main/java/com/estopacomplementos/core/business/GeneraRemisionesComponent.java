@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.estopacomplementos.core.benas.base.ResponseTO;
+import com.estopacomplementos.core.beans.base.ResponseTO;
 import com.estopacomplementos.core.dao.GestorClientesDAO;
 import com.estopacomplementos.core.dao.GestorRemisionesDAO;
 import com.estopacomplementos.core.entity.ClienteEntityTO;
@@ -42,8 +42,8 @@ public class GeneraRemisionesComponent {
 		log.info("Entra al metodo de realizaRemision ::::: GeneraRemisionesComponent");
 		ResponseTO responseTO = new ResponseTO();
 		try {
-			registraRemision(requestTO);
-			remisionUtils.creaRemisionConDatos(requestTO);						
+			remisionUtils.creaRemisionConDatos(requestTO);
+			registraRemision(requestTO);									
 			manejadorMensajes.managerSuccess(responseTO);
 		}catch(MensajeExcepcion e) {
 			manejadorMensajes.managerException(e, responseTO);
@@ -54,12 +54,10 @@ public class GeneraRemisionesComponent {
 	private void registraRemision(RemisionesRequestTO requestTO) {
 		log.info("Entra al metodo de registraRemision :::: GeneraRemisionesComponent");		
 		ClienteEntityTO entityTO = clientesDAO.busquedaPorNombreNegocio(requestTO.getNombreNegocio());
-		if(!ValidacionesUtils.isNullOrEmpty(entityTO)) {
+		if(!ValidacionesUtils.isNullOrEmpty(entityTO))
 			remisionesDAO.registraNotaCliente(requestTO, entityTO.getId());
-		} else {
-			log.info("El cliente no existe");
-			throw new MensajeExcepcion(CLIENTE_NO_REGISTRADO);}
-		
+		else
+			log.info("El cliente no se encuentra registrado.");		
 	}	
 
 }

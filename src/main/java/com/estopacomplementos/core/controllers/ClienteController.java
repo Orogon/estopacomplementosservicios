@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.estopacomplementos.core.benas.base.ResponseTO;
+import com.estopacomplementos.core.beans.base.ResponseTO;
 import com.estopacomplementos.core.business.ClientesComponent;
 import com.estopacomplementos.core.entity.AltaClienteRequestTO;
 import com.estopacomplementos.core.entity.ConsultaClienteRequesTO;

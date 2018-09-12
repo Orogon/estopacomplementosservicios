@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.estopacomplementos.core.benas.base.CodigosErrorEntityTO;
-import com.estopacomplementos.core.benas.base.ResponseTO;
+import com.estopacomplementos.core.beans.base.CodigosErrorEntityTO;
+import com.estopacomplementos.core.beans.base.ResponseTO;
 import com.estopacomplementos.core.dao.CodigosErrorDAO;
 import com.estopacomplementos.core.utils.ValidacionesUtils;
 

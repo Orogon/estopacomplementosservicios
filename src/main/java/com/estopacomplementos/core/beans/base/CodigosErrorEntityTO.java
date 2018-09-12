@@ -1,4 +1,4 @@
-package com.estopacomplementos.core.benas.base;
+package com.estopacomplementos.core.beans.base;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

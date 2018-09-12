@@ -2,7 +2,7 @@ package com.estopacomplementos.core.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.estopacomplementos.core.benas.base.TelefonosBeanTO;
+import com.estopacomplementos.core.beans.base.TelefonosBeanTO;
 
 public class EditarClienteRequesTO {
 	

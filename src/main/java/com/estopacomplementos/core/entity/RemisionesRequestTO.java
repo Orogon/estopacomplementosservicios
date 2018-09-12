@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.estopacomplementos.core.benas.base.VentaRemisionBeanTO;
+import com.estopacomplementos.core.beans.base.VentaRemisionBeanTO;
 
 /**
  * @author Cesar M Orozco R
@@ -33,7 +33,9 @@ public class RemisionesRequestTO {
 	
 	private String ahorro;
 	private String totalNotaSinDescuento;
-	private String totalNotaConDescuento;	
+	private String totalNotaConDescuento;
+	
+	private String totalNotaGlobal;
 	
 	
 	public String getNombreNegocio() {
@@ -114,5 +116,11 @@ public class RemisionesRequestTO {
 	public void setTelefonoNegocio(String telefonoNegocio) {
 		this.telefonoNegocio = telefonoNegocio;
 	}
+	public String getTotalNotaGlobal() {
+		return totalNotaGlobal;
+	}
+	public void setTotalNotaGlobal(String totalNotaGlobal) {
+		this.totalNotaGlobal = totalNotaGlobal;
+	}	
 	
 }
