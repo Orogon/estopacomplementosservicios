@@ -14,12 +14,10 @@ import com.estopacomplementos.core.exceptions.MensajeExcepcion;
 import com.estopacomplementos.core.utils.ConversorNumerosLetrasUtils;
 
 import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * @author Cesar M Orozco R
@@ -30,7 +28,7 @@ public class CrearRemisionComponent {
 	
 	private static final Logger log = LoggerFactory.getLogger(CrearRemisionComponent.class);
 	
-	private static final String ARCHIVO_JASPER = "E:\\Users\\corozcor\\Documents\\BAZDigital\\Workspace´s\\WorkspaceCesar\\estopacomplementosservicios\\src\\main\\resources\\nota.jasper";
+	private static final String ARCHIVO_JASPER = "C:\\Users\\Desarrollo\\Documents\\WorkspaceServicios\\estopacomplementosservicios\\src\\main\\resources\\nota.jasper";
 	private static final String PRODUCTOS_VENDIDOS = "productosVendidos";
 	private static final String NOMBRE_NEGOCIO = "nombreNegocio";
 	private static final String DIRECCION_NEGOCIO = "direccionNegocio";
@@ -60,10 +58,7 @@ public class CrearRemisionComponent {
 		try {
 			JRDataSource dataSource = new JRBeanCollectionDataSource(creaListaProductos(requestTO));		
 			JasperPrint jprint = JasperFillManager.fillReport(ARCHIVO_JASPER, creaParametros(requestTO), dataSource);
-			JasperViewer viewer = new JasperViewer(jprint);
-			viewer.setVisible(true);
-			JasperPrintManager.printReport(jprint, false);
-			log.info("La nota se a generado exitosamente");	
+			JasperPrintManager.printReport(jprint, false);			
 			log.info("La nota se a generado exitosamente");			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +78,9 @@ public class CrearRemisionComponent {
 		parameters.put(FOLIO_NOTA, requestTO.getFolioNota());		
 		parameters.put(CANTIDAD_LETRA, convierteCantidadALetra(requestTO.getTotalNotaGlobal()));
 		parameters.put(FECHA_REMISION, requestTO.getFechaRemision());
-		parameters.put(TOTAL_SIN_DESCUENTO, requestTO.getTotalNotaSinDescuento());
+		parameters.put(TOTAL_SIN_DESCUENTO, "$ "+requestTO.getTotalNotaSinDescuento());
 		parameters.put(TOTAL_CON_DESCUENTO, requestTO.getTotalNotaConDescuento().contains("No Aplica")?requestTO.getTotalNotaConDescuento():"$ "+requestTO.getTotalNotaConDescuento());
-		parameters.put(TOTAL_GLOBAL, requestTO.getTotalNotaGlobal());
+		parameters.put(TOTAL_GLOBAL, "$ "+requestTO.getTotalNotaGlobal());
 		parameters.put(TOTAL_IVA, "No Aplica");
 		parameters.put(AHORRO_TOTAL, requestTO.getAhorro().contains("No Aplica")?requestTO.getAhorro():"$ "+requestTO.getAhorro());
 		return parameters;

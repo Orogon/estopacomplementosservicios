@@ -81,14 +81,10 @@ public class TestMongo {
 		benaTO.setImporte("566");
 		benaTO.setCodigoProducto("HGT85");
 		benaTO.setPrecioVenta("875");
-		list.add(benaTO);
-		benaTO = new VentaRemisionBeanTO();
-		benaTO.setCantidadProducto("50");
-		benaTO.setDescripcion("Descripcion de Prueba 2");
-		benaTO.setImporte("566");
-		benaTO.setCodigoProducto("PLO85");
-		benaTO.setPrecioVenta("875");
-		list.add(benaTO);
+		for(int q = 0; q < 35; q++) {
+			list.add(benaTO);			
+		}
+		
 		return list;
 	}
 	

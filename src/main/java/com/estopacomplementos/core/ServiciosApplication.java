@@ -17,9 +17,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 @ComponentScan("com.estopacomplementos.core")
 @EnableAutoConfiguration(exclude={MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, MongoRepositoriesAutoConfiguration.class})
-public class ServiciosApplication {
-	
-	
+public class ServiciosApplication {	
 	
 	public static void main(String[] args) {
 		try {

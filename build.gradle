@@ -39,7 +39,7 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter', version:'1.5.14.RELEASE'
 	compile('org.springframework.boot:spring-boot-starter-web'){
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-	}	
+	}
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '1.5.14.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'	
