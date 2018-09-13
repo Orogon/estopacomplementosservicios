@@ -11,6 +11,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<import value="com.estopacomplementos.core.beans.base.*"/>
 	<subDataset name="Dataset1" uuid="9bd663c1-7063-453a-9eee-17eed6760c2a">
 		<queryString>
 			<![CDATA[]]>
@@ -34,7 +35,7 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="productosVendidos" class="com.estopacomplementos.core.benas.base.VentaRemisionBeanTO"/>
+	<field name="productosVendidos" class="com.estopacomplementos.core.beans.base.VentaRemisionBeanTO"/>
 	<title>
 		<band height="88">
 			<staticText>
